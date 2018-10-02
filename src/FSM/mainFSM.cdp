@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project owner="CodeDesigner" version="1.0">
+  <project_properties>
+    <object type="udRootItem">
+      <property name="id" type="long">1</property>
+      <property name="name" type="string">Project items</property>
+      <settings>
+        <object type="udGeneratorCategory">
+          <property name="id" type="long">1</property>
+          <property name="Output directory" type="dirname">.</property>
+          <property name="Base file name" type="string">mainFSM</property>
+          <property name="Code items file name" type="string">mainFSM_CI</property>
+          <property name="Generate code descriptions" type="bool">1</property>
+          <property name="Synchronize before generation" type="bool">0</property>
+        </object>
+        <object type="udHiddenProjectCategory">
+          <property name="id" type="long">2</property>
+          <property name="active_language" type="string">udCPPLanguage</property>
+          <property name="project_version" type="long">2</property>
+        </object>
+        <object type="udStateChartCategory">
+          <property name="id" type="long">3</property>
+          <property name="Invert conditions" type="bool">1</property>
+          <property name="Merge parallel transitions" type="bool">1</property>
+          <property name="Merge direct branches" type="bool">1</property>
+          <property name="Omit unused labels" type="bool">1</property>
+        </object>
+      </settings>
+    </object>
+  </project_properties>
+  <object type="udPackageItem">
+    <property name="id" type="long">2</property>
+    <property name="name" type="string">mainFSM</property>
+    <object type="udHStateChartDiagramItem">
+      <property name="id" type="long">3</property>
+      <property name="name" type="string">Sample</property>
+      <property name="description" type="string">Sample FSM</property>
+      <property name="diagram_type" type="string">State Chart</property>
+      <property name="generate_code" type="bool">1</property>
+      <property name="output_file" type="string">&lt;default&gt;</property>
+      <property name="active_generator" type="string">udHStateChartGenerator</property>
+      <property name="active_algorithm" type="string">udLoopCaseAlgorithm</property>
+      <property name="input_action" type="string">&lt;none&gt;</property>
+      <property name="non_blocking" type="bool">1</property>
+      <property name="inline" type="bool">0</property>
+      <diagram>
+        <object type="umlInitialItem">
+          <property name="id" type="long">1</property>
+          <property name="relative_position" type="realpoint">90.000000,40.000000</property>
+          <property name="halign" type="long">-12884901888</property>
+          <property name="user_data" type="serializabledynamic">
+            <object type="udInitialElementItem">
+              <property name="id" type="long">0</property>
+              <property name="name" type="string">Initial</property>
+              <property name="description" type="string">Diagram element's description...</property>
+            </object>
+          </property>
+          <property name="size" type="realpoint">20.000000,20.000000</property>
+          <property name="fill" type="brush">0,0,0,255 100</property>
+          <property name="title" type="serializabledynamicnocreate">
+            <object type="uddLabelElement">
+              <property name="id" type="long">2</property>
+              <property name="relative_position" type="realpoint">0.000000,25.000000</property>
+              <property name="size" type="realpoint">35.000000,15.000000</property>
+              <property name="text" type="string">Initial</property>
+              <property name="label_type" type="int">1</property>
+            </object>
+          </property>
+        </object>
+        <object type="umlSimpleStateItem">
+          <property name="id" type="long">3</property>
+          <property name="relative_position" type="realpoint">140.000000,100.000000</property>
+          <property name="halign" type="long">-12884901888</property>
+          <property name="user_data" type="serializabledynamic">
+            <object type="udSimpleStateElementItem">
+              <property name="id" type="long">0</property>
+              <property name="name" type="string">Always</property>
+              <property name="description" type="string">Diagram element's description...</property>
+            </object>
+          </property>
+          <property name="fill" type="brush">254,253,211,255 100</property>
+          <property name="title" type="serializabledynamicnocreate">
+            <object type="uddLabelElement">
+              <property name="id" type="long">4</property>
+              <property name="relative_position" type="realpoint">29.000000,5.000000</property>
+              <property name="size" type="realpoint">43.000000,15.000000</property>
+              <property name="text" type="string">Always</property>
+              <property name="label_type" type="int">1</property>
+            </object>
+          </property>
+        </object>
+        <object type="umlTransitionItem">
+          <property name="id" type="long">5</property>
+          <property name="relative_position" type="realpoint">590.000000,270.000000</property>
+          <property name="halign" type="long">-12884901888</property>
+          <property name="user_data" type="serializabledynamic">
+            <object type="udTransElementItem">
+              <property name="id" type="long">0</property>
+              <property name="name" type="string">Transition connection</property>
+              <property name="description" type="string">Transition's description...</property>
+            </object>
+          </property>
+          <property name="source" type="long">1</property>
+          <property name="target" type="long">3</property>
+          <property name="dock_point" type="long">4294967296</property>
+          <property name="label" type="serializabledynamicnocreate">
+            <object type="uddLabelElement">
+              <property name="id" type="long">6</property>
+              <property name="relative_position" type="realpoint">-36.000000,-7.000000</property>
+              <property name="size" type="realpoint">73.000000,15.000000</property>
+              <property name="text" type="string">&lt;&lt;  / [] &gt;&gt;</property>
+              <property name="label_type" type="int">3</property>
+            </object>
+          </property>
+        </object>
+        <object type="umlTransitionItem">
+          <property name="id" type="long">7</property>
+          <property name="relative_position" type="realpoint">590.000000,270.000000</property>
+          <property name="halign" type="long">-12884901888</property>
+          <property name="user_data" type="serializabledynamic">
+            <object type="udTransElementItem">
+              <property name="id" type="long">0</property>
+              <property name="name" type="string">Transition connection</property>
+              <property name="description" type="string">Transition's description...</property>
+              <object type="udActionLinkItem">
+                <property name="id" type="long">-1</property>
+                <property name="name" type="string">genLedStatus</property>
+                <property name="description" type="string">Link description...</property>
+                <property name="original_code" type="string">&lt;global&gt;::genLedStatus#4</property>
+                <property name="scope" type="string">&lt;global&gt;</property>
+              </object>
+            </object>
+          </property>
+          <property name="source" type="long">3</property>
+          <property name="target" type="long">3</property>
+          <property name="dock_point" type="long">12884901888</property>
+          <property name="control_points" type="listrealpoint">
+            <item>290.000000,190.000000</item>
+            <item>320.000000,150.000000</item>
+          </property>
+          <property name="label" type="serializabledynamicnocreate">
+            <object type="uddLabelElement">
+              <property name="id" type="long">8</property>
+              <property name="relative_position" type="realpoint">-63.000000,-27.000000</property>
+              <property name="size" type="realpoint">166.000000,15.000000</property>
+              <property name="text" type="string">&lt;&lt;  / [genLedStatus()] &gt;&gt;</property>
+              <property name="label_type" type="int">3</property>
+            </object>
+          </property>
+        </object>
+      </diagram>
+    </object>
+  </object>
+  <object type="udCodePackageItem">
+    <property name="id" type="long">5</property>
+    <property name="name" type="string">Action functions</property>
+    <object type="udActionItem">
+      <property name="id" type="long">4</property>
+      <property name="name" type="string">genLedStatus</property>
+      <property name="description" type="string">Generates the value of the ledStatus variable from the s1Mode variable</property>
+      <property name="code" type="string">dre.ledStatus = (dre.s1Mode != S1_NORMAL_IDX);</property>
+      <property name="scope" type="string">&lt;global&gt;</property>
+      <property name="signature" type="string">&lt;global&gt;::genLedStatus#4</property>
+      <property name="inline" type="bool">1</property>
+      <property name="retval_data_type" type="int">10</property>
+      <property name="retval_value_type" type="int">0</property>
+      <property name="retval_data_modifier" type="int">0</property>
+      <property name="user_retval_decl_place" type="int">0</property>
+      <property name="function_modifier" type="int">0</property>
+    </object>
+  </object>
+</project>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="97">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="src" displayName="src" projectFiles="true">
+      <logicalFolder name="CommonLibrary"
+                     displayName="CommonLibrary"
+                     projectFiles="true">
+        <itemPath>src/CommonLibrary/CommonLibrary.cpp</itemPath>
+        <itemPath>src/CommonLibrary/CommonLibrary.h</itemPath>
+        <itemPath>src/CommonLibrary/Discretizer1D.cpp</itemPath>
+        <itemPath>src/CommonLibrary/FlagQualifier.cpp</itemPath>
+        <itemPath>src/CommonLibrary/TimeFilter.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="FSM" displayName="FSM" projectFiles="true">
+        <itemPath>src/FSM/mainFSM.cdp</itemPath>
+        <itemPath>src/FSM/mainFSM.cpp</itemPath>
+        <itemPath>src/FSM/mainFSM.h</itemPath>
+        <itemPath>src/FSM/mainFSM_CI.cpp</itemPath>
+        <itemPath>src/FSM/mainFSM_CI.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="S1Mode" displayName="S1Mode" projectFiles="true">
+        <itemPath>src/S1Mode/S1Discretizer1D.cpp</itemPath>
+        <itemPath>src/S1Mode/S1ModePrj.cpp</itemPath>
+        <itemPath>src/S1Mode/S1ModePrj.h</itemPath>
+        <itemPath>src/S1Mode/S1ModeScheduler.cpp</itemPath>
+        <itemPath>src/S1Mode/S1TimeFilter.cpp</itemPath>
+      </logicalFolder>
+      <itemPath>src/DRE.cpp</itemPath>
+      <itemPath>src/DRE.h</itemPath>
+      <itemPath>src/prj_cfg.h</itemPath>
+      <itemPath>src/prj_input.cpp</itemPath>
+      <itemPath>src/prj_input.h</itemPath>
+      <itemPath>src/prj_main.cpp</itemPath>
+      <itemPath>src/prj_output.cpp</itemPath>
+      <itemPath>src/prj_output.h</itemPath>
+      <itemPath>src/prj_pinout.cpp</itemPath>
+      <itemPath>src/prj_pinout.h</itemPath>
+      <itemPath>src/prj_types.h</itemPath>
+      <itemPath>src/prj_variants.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>src</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="3">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <incDir>
+            <pElem>../../gatATAC/arduino/libraries/gatArduinOSEK</pElem>
+            <pElem>lib/dummylib</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>DUMMY_COMPILATION</Elem>
+          </preprocessorList>
+        </ccTool>
+        <archiverTool>
+        </archiverTool>
+      </compileType>
+      <item path="src/CommonLibrary/CommonLibrary.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/CommonLibrary/CommonLibrary.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/CommonLibrary/Discretizer1D.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/CommonLibrary/FlagQualifier.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/CommonLibrary/TimeFilter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/DRE.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/DRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FSM/mainFSM.cdp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FSM/mainFSM.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FSM/mainFSM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FSM/mainFSM_CI.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FSM/mainFSM_CI.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1Discretizer1D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1ModePrj.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1ModePrj.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1ModeScheduler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1TimeFilter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/prj_cfg.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_input.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/prj_input.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/prj_output.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/prj_output.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_pinout.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/prj_pinout.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_types.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_variants.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="3">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <archiverTool>
+        </archiverTool>
+      </compileType>
+      <item path="src/CommonLibrary/CommonLibrary.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/CommonLibrary/CommonLibrary.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/CommonLibrary/Discretizer1D.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/CommonLibrary/FlagQualifier.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/CommonLibrary/TimeFilter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/DRE.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/DRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FSM/mainFSM.cdp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FSM/mainFSM.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FSM/mainFSM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FSM/mainFSM_CI.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FSM/mainFSM_CI.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1Discretizer1D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1ModePrj.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1ModePrj.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1ModeScheduler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1TimeFilter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/prj_cfg.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_input.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/prj_input.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/prj_output.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/prj_output.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_pinout.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/prj_pinout.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_types.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_variants.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
