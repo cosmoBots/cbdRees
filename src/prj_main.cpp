@@ -3,7 +3,7 @@
 -- Additional files with prj_ prefix are the ones that must be configured for each project, they    --
 -- are part of the example.                                                                         --
 
-***** Project configuration include (before OSEK includes to allow OSEK configuration ******/
+ ***** Project configuration include (before OSEK includes to allow OSEK configuration ******/
 #include <Arduino.h>
 
 #include "prj_cfg.h"
@@ -28,39 +28,39 @@ extern t_dre dre;
 
 /***** FSM tasks *****/
 void fsmTasksInit(void) {
-  S1ModeSchedulerInit();
-  Sample();
+    S1ModeSchedulerInit();
+    Sample();
 }
 
 /***** FSM tasks *****/
 void fsmTasks(void) {
-  S1ModeScheduler();
-  Sample();
+    S1ModeScheduler();
+    Sample();
 }
 
 /***** Setup & Startup functions *****/
 
 void setup() {
 
-  Serial.begin(115200);
+    Serial.begin(115200);
 
-  ////////////// Platform init
-  timerSetCycleTime(CYCLE_TIME_IN_MICROS);
+    ////////////// Platform init
+    timerSetCycleTime(CYCLE_TIME_IN_MICROS);
 
-  ////////////// DRE init
-  dreInit();
+    ////////////// DRE init
+    dreInit();
 
-  ////////////// Pinout init
-  pinoutInit();
+    ////////////// Pinout init
+    pinoutInit();
 
-  ////////////// Input init
-  prjInputInit();
+    ////////////// Input init
+    prjInputInit();
 
-  ////////////// FSM init
-  fsmTasksInit();
+    ////////////// FSM init
+    fsmTasksInit();
 
-  ////////////// Output Init
-  prjOutputInit();
+    ////////////// Output Init
+    prjOutputInit();
 }
 
 /* ---------------------------------------*/
@@ -69,35 +69,37 @@ void setup() {
 int program_cycle_warnings = 0;
 
 void loop() {
-  // ----------- Functionality ----------------
+    // ----------- Functionality ----------------
 
-  ////////////// Pinout task
-  pinout();
+    ////////////// Pinout task
+    pinout();
 
-  ////////////// Input task
-  prjInput();
+    ////////////// Input task
+    prjInput();
 
-  ////////////// FSM tasks
-  fsmTasks();
+    ////////////// FSM tasks
+    fsmTasks();
 
-  // ----------- End of Cycle Synchronization ----------------
-  boolean timSync = timerSync();
-  #ifdef DEBUG_CYCLE_TIME
-  if (timSync) {
-    Serial.println(">>>>>>>> Program Cycle Error! <<<<<<<<<");
-  } else {
-    if ((CYCLE_TIME_IN_MICROS - elapsedMicros) < CYCLE_SECURITY_TIME_MICROS) {
-      Serial.print(">>>>>>>> Program Cycle Warning: "); Serial.print(program_cycle_warnings++);
-      Serial.print(" : ellapsedMicros = ");Serial.println(elapsedMicros);
+    // ----------- End of Cycle Synchronization ----------------
+    boolean timSync = timerSync();
+#ifdef DEBUG_CYCLE_TIME
+    if (timSync) {
+        Serial.println(">>>>>>>> Program Cycle Error! <<<<<<<<<");
+    } else {
+        if ((CYCLE_TIME_IN_MICROS - elapsedMicros) < CYCLE_SECURITY_TIME_MICROS) {
+            Serial.print(">>>>>>>> Program Cycle Warning: ");
+            Serial.print(program_cycle_warnings++);
+            Serial.print(" : ellapsedMicros = ");
+            Serial.println(elapsedMicros);
+        }
     }
-  }
-  #endif
-  while (timSync == false) {
-    // timerSync returns true when the end of cycle syncronization time expired.
-    timSync = timerSync();
-  }
+#endif
+    while (timSync == false) {
+        // timerSync returns true when the end of cycle syncronization time expired.
+        timSync = timerSync();
+    }
 
-  ////////////// Output task
-  prjOutput();
+    ////////////// Output task
+    prjOutput();
 
 }

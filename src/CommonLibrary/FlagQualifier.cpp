@@ -9,13 +9,11 @@ typedef enum {
 
 static t_state_flagqualifier state_flagqualifier = STATE_0_FLAGQUALIFIER;
 
-uint8_t GetCurrentFlagQualifierState(void)
-{
+uint8_t GetCurrentFlagQualifierState(void) {
     return (uint8_t) state_flagqualifier;
 }
 
-void SetCurrentFlagQualifierState(uint8_t state)
-{
+void SetCurrentFlagQualifierState(uint8_t state) {
     state_flagqualifier = (t_state_flagqualifier) state;
 }
 
@@ -23,33 +21,30 @@ static void FlagQualifier0(void);
 static void NotQualified(void);
 static void Qualified(void);
 
-void FlagQualifierInit(void)
-{
+void FlagQualifierInit(void) {
     state_flagqualifier = STATE_0_FLAGQUALIFIER;
 
     FlagQualifier();
 }
 
-void FlagQualifier(void)
-{
+void FlagQualifier(void) {
     switch (state_flagqualifier) {
-    case STATE_0_FLAGQUALIFIER:
-        FlagQualifier0();
-        break;
-    case STATE_FLAGQUALIFIER_NOTQUALIFIED:
-        NotQualified();
-        break;
-    case STATE_FLAGQUALIFIER_QUALIFIED:
-        Qualified();
-        break;
-    default:
-        state_flagqualifier = STATE_0_FLAGQUALIFIER;
-        break;
+        case STATE_0_FLAGQUALIFIER:
+            FlagQualifier0();
+            break;
+        case STATE_FLAGQUALIFIER_NOTQUALIFIED:
+            NotQualified();
+            break;
+        case STATE_FLAGQUALIFIER_QUALIFIED:
+            Qualified();
+            break;
+        default:
+            state_flagqualifier = STATE_0_FLAGQUALIFIER;
+            break;
     }
 }
 
-static void FlagQualifier0(void)
-{
+static void FlagQualifier0(void) {
     fq_block->output = FALSE;
 
     fq_block->output = FALSE;
@@ -58,8 +53,7 @@ static void FlagQualifier0(void)
     state_flagqualifier = STATE_FLAGQUALIFIER_NOTQUALIFIED;
 }
 
-static void NotQualified(void)
-{
+static void NotQualified(void) {
     if (fq_block->time < TIME_MS_MAX) {
 
         fq_block->time++;
@@ -81,14 +75,11 @@ static void NotQualified(void)
 
         state_flagqualifier = STATE_FLAGQUALIFIER_QUALIFIED;
     } else {
-
-        /* No s ha activat cap transicio: ens quedem a l estat actual */
         state_flagqualifier = STATE_FLAGQUALIFIER_NOTQUALIFIED;
     }
 }
 
-static void Qualified(void)
-{
+static void Qualified(void) {
     if (fq_block->time < TIME_MS_MAX) {
         fq_block->time++;
     }
@@ -110,4 +101,3 @@ static void Qualified(void)
         state_flagqualifier = STATE_FLAGQUALIFIER_QUALIFIED;
     }
 }
-

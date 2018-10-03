@@ -6,46 +6,49 @@ t_dre dre;
 
 
 /// Inputs
-void setup_s1Sense(void){
+
+void setup_s1Sense(void) {
     pinMode(PORT_s1Sense, INPUT);
 };
 
-void acquire_s1Sense(void){
-  #ifdef _DIAG_ACTIVE
-      if (diag.enable_s1Sense == TRUE) {
-          dre.s1Sense = diag.s1Sense;
-      } else {
-  #endif
-          dre.s1Sense = analogRead(PORT_s1Sense);
-  #ifdef _DIAG_ACTIVE
-      }
-  #endif
+void acquire_s1Sense(void) {
+#ifdef _DIAG_ACTIVE
+    if (diag.enable_s1Sense == TRUE) {
+        dre.s1Sense = diag.s1Sense;
+    } else {
+#endif
+        dre.s1Sense = analogRead(PORT_s1Sense);
+#ifdef _DIAG_ACTIVE
+    }
+#endif
 }
 
 /// Internals
-void setup_s1Mode(void){
-  dre.s1Mode = S1_NORMAL_IDX;
+
+void setup_s1Mode(void) {
+    dre.s1Mode = S1_NORMAL_IDX;
 }
 
 /// Outputs
-void setup_ledStatus(void){
-  pinMode(PORT_ledStatus, OUTPUT);
+
+void setup_ledStatus(void) {
+    pinMode(PORT_ledStatus, OUTPUT);
 }
 
-void synthesize_ledStatus(void){
-  bool aux;
+void synthesize_ledStatus(void) {
+    bool aux;
 #ifdef _DIAG_ACTIVE
     if (diag.enable_ledStatus == TRUE) {
-      aux = diag.ledStatus;
+        aux = diag.ledStatus;
     } else {
 #endif
-      aux = dre.ledStatus;
+        aux = dre.ledStatus;
 #ifdef _DIAG_ACTIVE
     }
 #endif
     digitalWrite(PORT_ledStatus, aux);
 };
 
-void dreInit(void){
-  setup_s1Mode();
+void dreInit(void) {
+    setup_s1Mode();
 }

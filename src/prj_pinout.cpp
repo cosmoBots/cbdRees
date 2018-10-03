@@ -7,6 +7,6 @@
 void pinoutInit(void) {
 }
 
-void pinout(void){
+void pinout(void) {
 
 }

@@ -1,5 +1,5 @@
 #ifndef S1_MODE_PRJ_H
-#define	S1_MODE_PRJ_H
+#define S1_MODE_PRJ_H
 
 #include "../CommonLibrary/CommonLibrary.h"
 
@@ -91,4 +91,4 @@ extern t_d1d_block s1_d1d_block; /*!< Block to allow discretizer to be "retarget
 extern t_timefilter_block s1_timefilter_block; /*!< Block to allow time filter to be "retargetable" */
 
 
-#endif	/* S1_DISCRETIZER_H */
+#endif /* S1_DISCRETIZER_H */

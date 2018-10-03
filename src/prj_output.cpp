@@ -8,9 +8,9 @@
 extern t_dre dre;
 
 void prjOutputInit(void) {
-  setup_ledStatus();
+    setup_ledStatus();
 }
 
 void prjOutput(void) {
-  synthesize_ledStatus();
+    synthesize_ledStatus();
 }

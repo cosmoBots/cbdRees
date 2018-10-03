@@ -39,38 +39,33 @@ void Discretizer1DDownRange(void) {
     }
 }
 
-void Discretizer1DSolverInit(void)
-{
+void Discretizer1DSolverInit(void) {
     /* -- action de la transicio inicial -- */
     d1d_block->range_idx = d1d_block->range_up_idx;
 }
 
-void Discretizer1DSolver(void)
-{
-        /* -- entry de l estat Combinational -- */
-        /* PLEASE NOTE THAT RANGES MUST GUARANTEE BY DESIGN THAT THIS FUNCTION IS SUCCESSFUL */
+void Discretizer1DSolver(void) {
+    /* -- entry de l estat Combinational -- */
+    /* PLEASE NOTE THAT RANGES MUST GUARANTEE BY DESIGN THAT THIS FUNCTION IS SUCCESSFUL */
     if (d1d_block->range_up_idx == d1d_block->range_down_idx) {
-            d1d_block->range_idx = d1d_block->range_up_idx;
-        } else {
-            if (d1d_block->range_down_idx < d1d_block->range_idx) {
-                d1d_block->range_idx = d1d_block->range_down_idx;
-            }
-            if (d1d_block->range_up_idx > d1d_block->range_idx) {
-                d1d_block->range_idx = d1d_block->range_up_idx;
-            }
+        d1d_block->range_idx = d1d_block->range_up_idx;
+    } else {
+        if (d1d_block->range_down_idx < d1d_block->range_idx) {
+            d1d_block->range_idx = d1d_block->range_down_idx;
         }
+        if (d1d_block->range_up_idx > d1d_block->range_idx) {
+            d1d_block->range_idx = d1d_block->range_up_idx;
+        }
+    }
 }
 
-
-void Discretizer1DInit(void)
-{
+void Discretizer1DInit(void) {
     Discretizer1DUpRangeInit();
     Discretizer1DDownRangeInit();
     Discretizer1DSolverInit();
 }
 
-void Discretizer1D(void)
-{
+void Discretizer1D(void) {
     Discretizer1DUpRange();
     Discretizer1DDownRange();
     Discretizer1DSolver();

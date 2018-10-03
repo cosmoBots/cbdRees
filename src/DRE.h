@@ -4,6 +4,7 @@
 #include "prj_types.h"
 
 #include "S1Mode/S1ModePrj.h"
+
 typedef struct {
     /// Inputs
     uint16_t s1Sense;
