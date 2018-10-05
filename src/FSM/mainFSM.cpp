@@ -3,21 +3,19 @@
 /* ['Common headers' end (DON'T REMOVE THIS LINE!)] */
 
 /* ['Sample' begin (DON'T REMOVE THIS LINE!)] */
-void Sample(  )
-{
+void Sample() {
     /* set initial state */
     static STATE_T state = ID_SAMPLE_INITIAL;
 
-    switch( state )
-    {
-        /* State ID: ID_SAMPLE_INITIAL */
+    switch (state) {
+            /* State ID: ID_SAMPLE_INITIAL */
         case ID_SAMPLE_INITIAL:
         {
             /* Transition ID: ID_SAMPLE_TRANSITION_CONNECTION */
             state = ID_SAMPLE_ALWAYS;
             break;
         }
-        /* State ID: ID_SAMPLE_ALWAYS */
+            /* State ID: ID_SAMPLE_ALWAYS */
         case ID_SAMPLE_ALWAYS:
         {
             /* Transition ID: ID_SAMPLE_TRANSITION_CONNECTION */
@@ -32,14 +30,12 @@ void Sample(  )
 /* ['Sample' end (DON'T REMOVE THIS LINE!)] */
 
 /* ['Blink' begin (DON'T REMOVE THIS LINE!)] */
-void Blink(  )
-{
+void Blink() {
     /* set initial state */
     static STATE_T state = ID_BLINK_INITIAL;
 
-    switch( state )
-    {
-        /* State ID: ID_BLINK_INITIAL */
+    switch (state) {
+            /* State ID: ID_BLINK_INITIAL */
         case ID_BLINK_INITIAL:
         {
             /* Transition ID: ID_BLINK_TRANSITION_CONNECTION */
@@ -53,11 +49,10 @@ void Blink(  )
             state = ID_BLINK_OFF;
             break;
         }
-        /* State ID: ID_BLINK_OFF */
+            /* State ID: ID_BLINK_OFF */
         case ID_BLINK_OFF:
         {
-            if( dre.blink.timer >= CTE_BLINK_PERIOD )
-            {
+            if (dre.blink.timer >= CTE_BLINK_PERIOD) {
                 /* Transition ID: ID_BLINK_TRANSITION_CONNECTION */
                 /* Actions: */
                 /* ['<global>::ledOn' begin] */
@@ -67,9 +62,7 @@ void Blink(  )
                 dre.blink.timer = 0;
                 /* ['<global>::rstBlinkTimer' end] */
                 state = ID_BLINK_ON;
-            }
-            else
-            {
+            } else {
                 /* Transition ID: ID_BLINK_TRANSITION_CONNECTION */
                 /* Actions: */
                 /* ['<global>::incrBlinkTimer' begin] */
@@ -78,11 +71,10 @@ void Blink(  )
             }
             break;
         }
-        /* State ID: ID_BLINK_ON */
+            /* State ID: ID_BLINK_ON */
         case ID_BLINK_ON:
         {
-            if( dre.blink.timer >= CTE_BLINK_PERIOD )
-            {
+            if (dre.blink.timer >= CTE_BLINK_PERIOD) {
                 /* Transition ID: ID_BLINK_TRANSITION_CONNECTION */
                 /* Actions: */
                 /* ['<global>::ledOff' begin] */
@@ -92,9 +84,7 @@ void Blink(  )
                 dre.blink.timer = 0;
                 /* ['<global>::rstBlinkTimer' end] */
                 state = ID_BLINK_OFF;
-            }
-            else
-            {
+            } else {
                 /* Transition ID: ID_BLINK_TRANSITION_CONNECTION */
                 /* Actions: */
                 /* ['<global>::incrBlinkTimer' begin] */

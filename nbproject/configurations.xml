@@ -20,6 +20,12 @@
           <itemPath>src/BATMode/BATModeScheduler.cpp</itemPath>
           <itemPath>src/BATMode/BATTimeFilter.cpp</itemPath>
         </logicalFolder>
+        <logicalFolder name="ButDebounce" displayName="ButDebounce" projectFiles="true">
+          <itemPath>src/ButDebounce/BUTDebouncePrj.cpp</itemPath>
+          <itemPath>src/ButDebounce/BUTDebouncePrj.h</itemPath>
+          <itemPath>src/ButDebounce/BUTDebounceScheduler.cpp</itemPath>
+          <itemPath>src/ButDebounce/BUTTimeFilter.cpp</itemPath>
+        </logicalFolder>
         <logicalFolder name="CommonLibrary"
                        displayName="CommonLibrary"
                        projectFiles="true">
@@ -103,6 +109,17 @@
       <item path="src/BATMode/BATModeScheduler.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/BATMode/BATTimeFilter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ButDebounce/BUTDebouncePrj.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ButDebounce/BUTDebouncePrj.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ButDebounce/BUTDebounceScheduler.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/ButDebounce/BUTTimeFilter.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/CommonLibrary/CommonLibrary.cpp"
             ex="false"
@@ -199,6 +216,17 @@
       <item path="src/BATMode/BATModeScheduler.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/BATMode/BATTimeFilter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ButDebounce/BUTDebouncePrj.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ButDebounce/BUTDebouncePrj.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ButDebounce/BUTDebounceScheduler.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/ButDebounce/BUTTimeFilter.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/CommonLibrary/CommonLibrary.cpp"
             ex="false"

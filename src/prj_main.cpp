@@ -30,6 +30,7 @@ extern t_dre dre;
 void fsmTasksInit(void) {
     S1ModeSchedulerInit();
     BATModeSchedulerInit();
+    BUTDebounceSchedulerInit();
     Sample();
     Blink();
 }
@@ -38,6 +39,7 @@ void fsmTasksInit(void) {
 void fsmTasks(void) {
     S1ModeScheduler();
     BATModeScheduler();
+    BUTDebounceScheduler();
     Blink();
 }
 

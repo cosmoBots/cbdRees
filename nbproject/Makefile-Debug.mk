@@ -39,6 +39,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/BATMode/BATModePrj.o \
 	${OBJECTDIR}/src/BATMode/BATModeScheduler.o \
 	${OBJECTDIR}/src/BATMode/BATTimeFilter.o \
+	${OBJECTDIR}/src/ButDebounce/BUTDebouncePrj.o \
+	${OBJECTDIR}/src/ButDebounce/BUTDebounceScheduler.o \
+	${OBJECTDIR}/src/ButDebounce/BUTTimeFilter.o \
 	${OBJECTDIR}/src/CommonLibrary/CommonLibrary.o \
 	${OBJECTDIR}/src/CommonLibrary/Discretizer1D.o \
 	${OBJECTDIR}/src/CommonLibrary/FlagQualifier.o \
@@ -101,6 +104,21 @@ ${OBJECTDIR}/src/BATMode/BATTimeFilter.o: src/BATMode/BATTimeFilter.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/BATMode
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -DDUMMY_COMPILATION -I../../gatATAC/arduino/libraries/gatArduinOSEK -Ilib/dummylib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/BATMode/BATTimeFilter.o src/BATMode/BATTimeFilter.cpp
+
+${OBJECTDIR}/src/ButDebounce/BUTDebouncePrj.o: src/ButDebounce/BUTDebouncePrj.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ButDebounce
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DDUMMY_COMPILATION -I../../gatATAC/arduino/libraries/gatArduinOSEK -Ilib/dummylib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ButDebounce/BUTDebouncePrj.o src/ButDebounce/BUTDebouncePrj.cpp
+
+${OBJECTDIR}/src/ButDebounce/BUTDebounceScheduler.o: src/ButDebounce/BUTDebounceScheduler.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ButDebounce
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DDUMMY_COMPILATION -I../../gatATAC/arduino/libraries/gatArduinOSEK -Ilib/dummylib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ButDebounce/BUTDebounceScheduler.o src/ButDebounce/BUTDebounceScheduler.cpp
+
+${OBJECTDIR}/src/ButDebounce/BUTTimeFilter.o: src/ButDebounce/BUTTimeFilter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ButDebounce
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DDUMMY_COMPILATION -I../../gatATAC/arduino/libraries/gatArduinOSEK -Ilib/dummylib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ButDebounce/BUTTimeFilter.o src/ButDebounce/BUTTimeFilter.cpp
 
 ${OBJECTDIR}/src/CommonLibrary/CommonLibrary.o: src/CommonLibrary/CommonLibrary.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/CommonLibrary

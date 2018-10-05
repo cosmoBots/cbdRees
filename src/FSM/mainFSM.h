@@ -7,7 +7,7 @@
 #define ID_SAMPLE_INITIAL 3
 #define ID_SAMPLE_ALWAYS 4
 
-void Sample(  );
+void Sample();
 /* ['Sample' end (DON'T REMOVE THIS LINE!)] */
 
 /* ['Blink' begin (DON'T REMOVE THIS LINE!)] */
@@ -16,5 +16,5 @@ void Sample(  );
 #define ID_BLINK_OFF 1
 #define ID_BLINK_ON 2
 
-void Blink(  );
+void Blink();
 /* ['Blink' end (DON'T REMOVE THIS LINE!)] */

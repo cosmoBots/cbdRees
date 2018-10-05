@@ -5,41 +5,47 @@
 
 #include "S1Mode/S1ModePrj.h"
 #include "BATMode/BATModePrj.h"
+#include "BUTDebounce/BUTDebouncePrj.h"
 
 /// Blink function structure
+
 typedef struct {
     bool led;
     uint16_t timer;
-}t_blink_function;
-
+} t_blink_function;
 
 /// DRE Structure
+
 typedef struct {
     /// Inputs
     uint16_t s1Sense;
     uint16_t batSense;
+    bool butDI;
 
     /// Internals
     t_enum_s1Mode s1Mode;
     t_enum_batMode batMode;
+    bool but;
 
     /// Outputs
     bool ledStatus;
-    
+
     /// Functions
     t_blink_function blink;
 } t_dre;
 
 /// Blink function diagnostics structure
 #ifdef _DIAG_ACTIVE
+
 typedef struct {
     bool enable_led;
     bool led;
     bool enable_timer;
     uint16_t timer;
-}t_blink_function_diag;
+} t_blink_function_diag;
 
 /// Diagnostics DRE structure
+
 typedef struct {
     bool enable_ledStatus;
     bool ledStatus;
@@ -52,6 +58,10 @@ typedef struct {
     bool enable_batMode;
     t_enum_batMode batMode;
     t_blink_function_diag blink;
+    bool enable_but;
+    bool but;
+    bool enable_butDI;
+    bool butDI;
 } t_diag;
 #endif
 
@@ -62,10 +72,13 @@ void setup_s1Sense(void);
 void acquire_s1Sense(void);
 void setup_batSense(void);
 void acquire_batSense(void);
+void setup_butDI(void);
+void acquire_butDI(void);
 
 /// Internals
 void setup_s1Mode(void);
 void setup_batMode(void);
+void setup_but(void);
 
 /// Outputs
 void setup_ledStatus(void);

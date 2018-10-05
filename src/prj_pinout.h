@@ -3,13 +3,15 @@
 #ifndef _PRJ_PINOUT_H
 #define _PRJ_PINOUT_H
 
+#include <Arduino.h>
 #include <gttc_types.h>
 #include "prj_input.h"
 #include "prj_output.h"
 
 #define PORT_ledStatus 13
-#define PORT_s1Sense -1
-#define PORT_batSense -1
+#define PORT_s1Sense A0     // = DIO 14
+#define PORT_batSense A1    // = DIO 15
+#define PORT_butDI 2
 
 void pinoutInit(void);
 void pinout(void);

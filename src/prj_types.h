@@ -2,7 +2,7 @@
 #define _PRJ_TYPES
 
 #include <Arduino.h>
-
+#include <gttc_timer.h>
 #define TRUE true
 #define FALSE false
 
