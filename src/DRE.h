@@ -4,8 +4,8 @@
 #include "prj_types.h"
 
 #include "S1Mode/S1ModePrj.h"
-#include "BATMode/BATModePrj.h"
-#include "BUTDebounce/BUTDebouncePrj.h"
+#include "BATMode/BATMode.h"
+#include "BUTDebounce/BUTDebounce.h"
 
 /// Blink function structure
 

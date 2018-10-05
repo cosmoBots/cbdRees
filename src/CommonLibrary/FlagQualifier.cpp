@@ -1,59 +1,43 @@
 #include "CommonLibrary.h"
 #include <gttc_timer.h>
 
-typedef enum {
-    STATE_FLAGQUALIFIER_NOTQUALIFIED = 1,
-    STATE_FLAGQUALIFIER_QUALIFIED = 2,
-    STATE_0_FLAGQUALIFIER = 0
-} t_state_flagqualifier;
+static void FlagQualifier0(t_flagqualifier_block *fq_block);
+static void NotQualified(t_flagqualifier_block *fq_block);
+static void Qualified(t_flagqualifier_block *fq_block);
 
-static t_state_flagqualifier state_flagqualifier = STATE_0_FLAGQUALIFIER;
+void FlagQualifierInit(t_flagqualifier_block *fq_block) {
+    fq_block->state = STATE_0_FLAGQUALIFIER;
 
-uint8_t GetCurrentFlagQualifierState(void) {
-    return (uint8_t) state_flagqualifier;
+    FlagQualifier(fq_block);
 }
 
-void SetCurrentFlagQualifierState(uint8_t state) {
-    state_flagqualifier = (t_state_flagqualifier) state;
-}
-
-static void FlagQualifier0(void);
-static void NotQualified(void);
-static void Qualified(void);
-
-void FlagQualifierInit(void) {
-    state_flagqualifier = STATE_0_FLAGQUALIFIER;
-
-    FlagQualifier();
-}
-
-void FlagQualifier(void) {
-    switch (state_flagqualifier) {
+void FlagQualifier(t_flagqualifier_block *fq_block) {
+    switch (fq_block->state) {
         case STATE_0_FLAGQUALIFIER:
-            FlagQualifier0();
+            FlagQualifier0(fq_block);
             break;
         case STATE_FLAGQUALIFIER_NOTQUALIFIED:
-            NotQualified();
+            NotQualified(fq_block);
             break;
         case STATE_FLAGQUALIFIER_QUALIFIED:
-            Qualified();
+            Qualified(fq_block);
             break;
         default:
-            state_flagqualifier = STATE_0_FLAGQUALIFIER;
+            fq_block->state = STATE_0_FLAGQUALIFIER;
             break;
     }
 }
 
-static void FlagQualifier0(void) {
+static void FlagQualifier0(t_flagqualifier_block *fq_block) {
     fq_block->output = FALSE;
 
     fq_block->output = FALSE;
     fq_block->time = 0;
 
-    state_flagqualifier = STATE_FLAGQUALIFIER_NOTQUALIFIED;
+    fq_block->state = STATE_FLAGQUALIFIER_NOTQUALIFIED;
 }
 
-static void NotQualified(void) {
+static void NotQualified(t_flagqualifier_block *fq_block) {
     if (fq_block->time < TIME_MS_MAX) {
 
         fq_block->time++;
@@ -65,7 +49,7 @@ static void NotQualified(void) {
         fq_block->output = FALSE;
         fq_block->time = 0;
 
-        state_flagqualifier = STATE_FLAGQUALIFIER_NOTQUALIFIED;
+        fq_block->state = STATE_FLAGQUALIFIER_NOTQUALIFIED;
     } else
 
         if ((fq_block->input == TRUE) && (fq_block->time >= fq_block->qualify_time)) {
@@ -73,13 +57,13 @@ static void NotQualified(void) {
         fq_block->output = TRUE;
         fq_block->time = 0;
 
-        state_flagqualifier = STATE_FLAGQUALIFIER_QUALIFIED;
+        fq_block->state = STATE_FLAGQUALIFIER_QUALIFIED;
     } else {
-        state_flagqualifier = STATE_FLAGQUALIFIER_NOTQUALIFIED;
+        fq_block->state = STATE_FLAGQUALIFIER_NOTQUALIFIED;
     }
 }
 
-static void Qualified(void) {
+static void Qualified(t_flagqualifier_block *fq_block) {
     if (fq_block->time < TIME_MS_MAX) {
         fq_block->time++;
     }
@@ -89,15 +73,15 @@ static void Qualified(void) {
         fq_block->output = TRUE;
         fq_block->time = 0;
 
-        state_flagqualifier = STATE_FLAGQUALIFIER_QUALIFIED;
+        fq_block->state = STATE_FLAGQUALIFIER_QUALIFIED;
     } else if ((fq_block->input == FALSE) && (fq_block->time >= fq_block->heal_time)) {
 
         fq_block->output = FALSE;
         fq_block->time = 0;
 
-        state_flagqualifier = STATE_FLAGQUALIFIER_NOTQUALIFIED;
+        fq_block->state = STATE_FLAGQUALIFIER_NOTQUALIFIED;
     } else {
 
-        state_flagqualifier = STATE_FLAGQUALIFIER_QUALIFIED;
+        fq_block->state = STATE_FLAGQUALIFIER_QUALIFIED;
     }
 }

@@ -19,6 +19,13 @@ typedef struct {
     uint8_t range_idx; /*!< Result of the discretization */
 } t_d1d_block;
 
+
+typedef enum {
+    STATE_TIMEFILTER_NOTCHANGEDETECTED = 1,
+    STATE_TIMEFILTER_CHANGEDETECTED = 2,
+    STATE_0_TIMEFILTER = 0
+} t_state_timefilter;
+
 /**
  Type definition for the time filter block */
 typedef struct {
@@ -32,7 +39,14 @@ typedef struct {
     uint16_t new_value_detected; /*!< In the case a new value appears, it is stored here */
     /* Output value */
     uint16_t output; /*!< The filtered variable */
+    t_state_timefilter state;
 } t_timefilter_block;
+
+typedef enum {
+    STATE_FLAGQUALIFIER_NOTQUALIFIED = 1,
+    STATE_FLAGQUALIFIER_QUALIFIED = 2,
+    STATE_0_FLAGQUALIFIER = 0
+} t_state_flagqualifier;
 
 /**
  Type definition for the flag qualifier block */
@@ -47,35 +61,26 @@ typedef struct {
     uint16_t time; /*!< Internal time of the FSM */
     /* Output value */
     bool output; /*!< The filtered variable */
+    t_state_flagqualifier state;
 } t_flagqualifier_block;
 
 /**** FSM includes ****/
 /** Discretizer1D API **/
-void Discretizer1DInit(void);
-void Discretizer1D(void); /*!< Discretizes one variable into ranges, using upper and lower frontier vectors */
-void Discretizer1DUpRangeInit(void);
-void Discretizer1DUpRange(void); /*!< Discretizes one variable into ranges using upper vector */
-void Discretizer1DDownRangeInit(void);
-void Discretizer1DDownRange(void); /*!< Discretizes one variable into ranges using lower vector */
-void Discretizer1DSolverInit(void);
-void Discretizer1DSolver(void); /*!< Solves conflicts between upper and lower discretizations */
-
-extern t_d1d_block *d1d_block; /*!< Block to enable the discretization FSM to be executed as retargetable */
+void Discretizer1DInit(t_d1d_block *d1d_block);
+void Discretizer1D(t_d1d_block *d1d_block); /*!< Discretizes one variable into ranges, using upper and lower frontier vectors */
+void Discretizer1DUpRangeInit(t_d1d_block *d1d_block);
+void Discretizer1DUpRange(t_d1d_block *d1d_block); /*!< Discretizes one variable into ranges using upper vector */
+void Discretizer1DDownRangeInit(t_d1d_block *d1d_block);
+void Discretizer1DDownRange(t_d1d_block *d1d_block); /*!< Discretizes one variable into ranges using lower vector */
+void Discretizer1DSolverInit(t_d1d_block *d1d_block);
+void Discretizer1DSolver(t_d1d_block *d1d_block); /*!< Solves conflicts between upper and lower discretizations */
 
 /** TimeFilter API **/
-void TimeFilterInit(void);
-void TimeFilter(void); /*!< Filterss one variable in time */
-uint8_t getCurrentTimeFilterState(void); /*!< Accessor to get the internal state of the filtering FSM */
-void setCurrentTimeFilterState(uint8_t state); /*!< Accessor to set the internal state of the filtering FSM */
-
-extern t_timefilter_block *tf_block; /*!< Block to enable the time filtering FSM to be executed as retargetable */
+void TimeFilterInit(t_timefilter_block *tf_block);
+void TimeFilter(t_timefilter_block *tf_block); /*!< Filterss one variable in time */
 
 /** FlagQualifier API **/
-void FlagQualifierInit(void);
-void FlagQualifier(void); /*!< Filterss one variable in time */
-uint8_t getCurrentFlagQualifierState(void); /*!< Accessor to get the internal state of the filtering FSM */
-void setCurrentFlagQualifierState(uint8_t state); /*!< Accessor to set the internal state of the filtering FSM */
-
-extern t_flagqualifier_block *fq_block; /*!< Block to enable the time filtering FSM to be executed as retargetable */
+void FlagQualifierInit(t_flagqualifier_block *fq_block);
+void FlagQualifier(t_flagqualifier_block *fq_block); /*!< Filterss one variable in time */
 
 #endif /* COMMONLIBRARY_H */

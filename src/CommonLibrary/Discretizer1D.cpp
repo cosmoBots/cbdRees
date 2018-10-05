@@ -1,10 +1,10 @@
 #include "CommonLibrary.h"
 
-void Discretizer1DUpRangeInit(void) {
+void Discretizer1DUpRangeInit(t_d1d_block *d1d_block) {
 
 }
 
-void Discretizer1DUpRange(void) {
+void Discretizer1DUpRange(t_d1d_block *d1d_block) {
     uint8_t idx;
     bool found = FALSE;
     for (idx = 1; (found == FALSE) && (idx < (d1d_block->num_ranges)); idx++) {
@@ -20,11 +20,11 @@ void Discretizer1DUpRange(void) {
 
 }
 
-void Discretizer1DDownRangeInit(void) {
+void Discretizer1DDownRangeInit(t_d1d_block *d1d_block) {
 
 }
 
-void Discretizer1DDownRange(void) {
+void Discretizer1DDownRange(t_d1d_block *d1d_block) {
     uint8_t idx;
     bool found = FALSE;
     for (idx = 1; (found == FALSE) && (idx < (d1d_block->num_ranges)); idx++) {
@@ -39,12 +39,12 @@ void Discretizer1DDownRange(void) {
     }
 }
 
-void Discretizer1DSolverInit(void) {
+void Discretizer1DSolverInit(t_d1d_block *d1d_block) {
     /* -- action de la transicio inicial -- */
     d1d_block->range_idx = d1d_block->range_up_idx;
 }
 
-void Discretizer1DSolver(void) {
+void Discretizer1DSolver(t_d1d_block *d1d_block) {
     /* -- entry de l estat Combinational -- */
     /* PLEASE NOTE THAT RANGES MUST GUARANTEE BY DESIGN THAT THIS FUNCTION IS SUCCESSFUL */
     if (d1d_block->range_up_idx == d1d_block->range_down_idx) {
@@ -59,14 +59,14 @@ void Discretizer1DSolver(void) {
     }
 }
 
-void Discretizer1DInit(void) {
-    Discretizer1DUpRangeInit();
-    Discretizer1DDownRangeInit();
-    Discretizer1DSolverInit();
+void Discretizer1DInit(t_d1d_block *d1d_block) {
+    Discretizer1DUpRangeInit(d1d_block);
+    Discretizer1DDownRangeInit(d1d_block);
+    Discretizer1DSolverInit(d1d_block);
 }
 
-void Discretizer1D(void) {
-    Discretizer1DUpRange();
-    Discretizer1DDownRange();
-    Discretizer1DSolver();
+void Discretizer1D(t_d1d_block *d1d_block) {
+    Discretizer1DUpRange(d1d_block);
+    Discretizer1DDownRange(d1d_block);
+    Discretizer1DSolver(d1d_block);
 }

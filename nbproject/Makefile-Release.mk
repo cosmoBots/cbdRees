@@ -35,6 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/src/BATMode/BATMode.o \
+	${OBJECTDIR}/src/BUTDebounce/BUTDebounce.o \
 	${OBJECTDIR}/src/CommonLibrary/CommonLibrary.o \
 	${OBJECTDIR}/src/CommonLibrary/Discretizer1D.o \
 	${OBJECTDIR}/src/CommonLibrary/FlagQualifier.o \
@@ -77,6 +79,16 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libcosmobotsdraft.a: ${OBJECTFILES}
 	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libcosmobotsdraft.a
 	${AR} -rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libcosmobotsdraft.a ${OBJECTFILES} 
 	$(RANLIB) ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libcosmobotsdraft.a
+
+${OBJECTDIR}/src/BATMode/BATMode.o: src/BATMode/BATMode.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/BATMode
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/BATMode/BATMode.o src/BATMode/BATMode.cpp
+
+${OBJECTDIR}/src/BUTDebounce/BUTDebounce.o: src/BUTDebounce/BUTDebounce.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/BUTDebounce
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/BUTDebounce/BUTDebounce.o src/BUTDebounce/BUTDebounce.cpp
 
 ${OBJECTDIR}/src/CommonLibrary/CommonLibrary.o: src/CommonLibrary/CommonLibrary.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/CommonLibrary

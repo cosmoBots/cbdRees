@@ -81,8 +81,8 @@ void BATDiscretizer1DInit(void);
 void BATDiscretizer1D(void); /*!< Function that discretizes a continuous value in ranges */
 void BATTimeFilterInit(void);
 void BATTimeFilter(void); /*!< Function that filters a value in time */
-void BATModeSchedulerInit(void);
-void BATModeScheduler(void); /*!< Manager that commands the mode detection */
+void BATModeInit(void);
+void BATMode(void); /*!< Manager that commands the mode detection */
 
 /*** Manually added definitions ***/
 #define T_BAT_RANGE_STABILITY_TIME ((uint16_t)20)  /*!< Time to filter the appearance of a new mode */

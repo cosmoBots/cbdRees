@@ -14,17 +14,12 @@
                    projectFiles="true">
       <logicalFolder name="src" displayName="src" projectFiles="true">
         <logicalFolder name="BATMode" displayName="BATMode" projectFiles="true">
-          <itemPath>src/BATMode/BATDiscretizer1D.cpp</itemPath>
-          <itemPath>src/BATMode/BATModePrj.cpp</itemPath>
-          <itemPath>src/BATMode/BATModePrj.h</itemPath>
-          <itemPath>src/BATMode/BATModeScheduler.cpp</itemPath>
-          <itemPath>src/BATMode/BATTimeFilter.cpp</itemPath>
+          <itemPath>src/BATMode/BATMode.cpp</itemPath>
+          <itemPath>src/BATMode/BATMode.h</itemPath>
         </logicalFolder>
         <logicalFolder name="ButDebounce" displayName="ButDebounce" projectFiles="true">
-          <itemPath>src/ButDebounce/BUTDebouncePrj.cpp</itemPath>
-          <itemPath>src/ButDebounce/BUTDebouncePrj.h</itemPath>
-          <itemPath>src/ButDebounce/BUTDebounceScheduler.cpp</itemPath>
-          <itemPath>src/ButDebounce/BUTTimeFilter.cpp</itemPath>
+          <itemPath>src/BUTDebounce/BUTDebounce.cpp</itemPath>
+          <itemPath>src/ButDebounce/BUTDebounce.h</itemPath>
         </logicalFolder>
         <logicalFolder name="CommonLibrary"
                        displayName="CommonLibrary"
@@ -100,26 +95,13 @@
         <archiverTool>
         </archiverTool>
       </compileType>
-      <item path="src/BATMode/BATDiscretizer1D.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/BATMode/BATMode.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/BATMode/BATModePrj.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/BATMode/BATMode.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/BATMode/BATModePrj.h" ex="false" tool="3" flavor2="0">
+      <item path="src/BUTDebounce/BUTDebounce.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/BATMode/BATModeScheduler.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/BATMode/BATTimeFilter.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/ButDebounce/BUTDebouncePrj.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/ButDebounce/BUTDebouncePrj.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/ButDebounce/BUTDebounceScheduler.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="src/ButDebounce/BUTTimeFilter.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/ButDebounce/BUTDebounce.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/CommonLibrary/CommonLibrary.cpp"
             ex="false"
@@ -207,26 +189,13 @@
         <archiverTool>
         </archiverTool>
       </compileType>
-      <item path="src/BATMode/BATDiscretizer1D.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/BATMode/BATMode.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/BATMode/BATModePrj.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/BATMode/BATMode.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/BATMode/BATModePrj.h" ex="false" tool="3" flavor2="0">
+      <item path="src/BUTDebounce/BUTDebounce.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/BATMode/BATModeScheduler.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/BATMode/BATTimeFilter.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/ButDebounce/BUTDebouncePrj.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/ButDebounce/BUTDebouncePrj.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/ButDebounce/BUTDebounceScheduler.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="src/ButDebounce/BUTTimeFilter.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/ButDebounce/BUTDebounce.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/CommonLibrary/CommonLibrary.cpp"
             ex="false"
