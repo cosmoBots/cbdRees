@@ -3,7 +3,7 @@
 
 #include "prj_types.h"
 
-#include "S1Mode/S1ModePrj.h"
+#include "S1Mode/S1Mode.h"
 #include "BATMode/BATMode.h"
 #include "BUTDebounce/BUTDebounce.h"
 

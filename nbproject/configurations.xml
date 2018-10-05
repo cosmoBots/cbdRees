@@ -38,11 +38,8 @@
           <itemPath>src/FSM/mainFSM_CI.h</itemPath>
         </logicalFolder>
         <logicalFolder name="S1Mode" displayName="S1Mode" projectFiles="true">
-          <itemPath>src/S1Mode/S1Discretizer1D.cpp</itemPath>
-          <itemPath>src/S1Mode/S1ModePrj.cpp</itemPath>
-          <itemPath>src/S1Mode/S1ModePrj.h</itemPath>
-          <itemPath>src/S1Mode/S1ModeScheduler.cpp</itemPath>
-          <itemPath>src/S1Mode/S1TimeFilter.cpp</itemPath>
+          <itemPath>src/S1Mode/S1Mode.cpp</itemPath>
+          <itemPath>src/S1Mode/S1Mode.h</itemPath>
         </logicalFolder>
         <itemPath>src/DRE.cpp</itemPath>
         <itemPath>src/DRE.h</itemPath>
@@ -136,15 +133,9 @@
       </item>
       <item path="src/FSM/mainFSM_CI.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/S1Mode/S1Discretizer1D.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/S1Mode/S1Mode.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/S1Mode/S1ModePrj.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/S1Mode/S1ModePrj.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/S1Mode/S1ModeScheduler.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/S1Mode/S1TimeFilter.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/S1Mode/S1Mode.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/prj_cfg.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -230,15 +221,9 @@
       </item>
       <item path="src/FSM/mainFSM_CI.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/S1Mode/S1Discretizer1D.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/S1Mode/S1Mode.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/S1Mode/S1ModePrj.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/S1Mode/S1ModePrj.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/S1Mode/S1ModeScheduler.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/S1Mode/S1TimeFilter.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/S1Mode/S1Mode.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/prj_cfg.h" ex="false" tool="3" flavor2="0">
       </item>

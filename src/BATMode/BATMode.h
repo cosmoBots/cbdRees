@@ -1,5 +1,5 @@
-#ifndef BAT_MODE_PRJ_H
-#define BAT_MODE_PRJ_H
+#ifndef BAT_MODE_H
+#define BAT_MODE_H
 
 #include "../CommonLibrary/CommonLibrary.h"
 
@@ -71,24 +71,12 @@ typedef enum {
 
 } t_enum_batMode;
 
-
-extern uint16_t bat_mode_values[5]; /*!< vector to contain the "normal" frontiers between modes */
-extern uint16_t bat_mode_hyst_values[5]; /*!< vector to contain the "hystheresis" frontiers between modes */
-
-
 /**** FSM includes ****/
-void BATDiscretizer1DInit(void);
-void BATDiscretizer1D(void); /*!< Function that discretizes a continuous value in ranges */
-void BATTimeFilterInit(void);
-void BATTimeFilter(void); /*!< Function that filters a value in time */
 void BATModeInit(void);
 void BATMode(void); /*!< Manager that commands the mode detection */
 
 /*** Manually added definitions ***/
-#define T_BAT_RANGE_STABILITY_TIME ((uint16_t)20)  /*!< Time to filter the appearance of a new mode */
-
-extern t_d1d_block bat_d1d_block; /*!< Block to allow discretizer to be "retargetable" */
-extern t_timefilter_block bat_timefilter_block; /*!< Block to allow time filter to be "retargetable" */
+#define T_BAT_RANGE_STABILITY_TIME ((uint16_t)CALC_CYCLE_COUNT_FOR_TIME(50000))  /*!< Time to filter the appearance of a new mode */
 
 
-#endif /* BAT_DISCRETIZER_H */
+#endif /* BAT_MODE_H */

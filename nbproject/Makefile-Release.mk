@@ -44,10 +44,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/DRE.o \
 	${OBJECTDIR}/src/FSM/mainFSM.o \
 	${OBJECTDIR}/src/FSM/mainFSM_CI.o \
-	${OBJECTDIR}/src/S1Mode/S1Discretizer1D.o \
-	${OBJECTDIR}/src/S1Mode/S1ModePrj.o \
-	${OBJECTDIR}/src/S1Mode/S1ModeScheduler.o \
-	${OBJECTDIR}/src/S1Mode/S1TimeFilter.o \
+	${OBJECTDIR}/src/S1Mode/S1Mode.o \
 	${OBJECTDIR}/src/prj_input.o \
 	${OBJECTDIR}/src/prj_main.o \
 	${OBJECTDIR}/src/prj_output.o \
@@ -125,25 +122,10 @@ ${OBJECTDIR}/src/FSM/mainFSM_CI.o: src/FSM/mainFSM_CI.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FSM/mainFSM_CI.o src/FSM/mainFSM_CI.cpp
 
-${OBJECTDIR}/src/S1Mode/S1Discretizer1D.o: src/S1Mode/S1Discretizer1D.cpp 
+${OBJECTDIR}/src/S1Mode/S1Mode.o: src/S1Mode/S1Mode.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/S1Mode
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/S1Mode/S1Discretizer1D.o src/S1Mode/S1Discretizer1D.cpp
-
-${OBJECTDIR}/src/S1Mode/S1ModePrj.o: src/S1Mode/S1ModePrj.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/S1Mode
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/S1Mode/S1ModePrj.o src/S1Mode/S1ModePrj.cpp
-
-${OBJECTDIR}/src/S1Mode/S1ModeScheduler.o: src/S1Mode/S1ModeScheduler.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/S1Mode
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/S1Mode/S1ModeScheduler.o src/S1Mode/S1ModeScheduler.cpp
-
-${OBJECTDIR}/src/S1Mode/S1TimeFilter.o: src/S1Mode/S1TimeFilter.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/S1Mode
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/S1Mode/S1TimeFilter.o src/S1Mode/S1TimeFilter.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/S1Mode/S1Mode.o src/S1Mode/S1Mode.cpp
 
 ${OBJECTDIR}/src/prj_input.o: src/prj_input.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src

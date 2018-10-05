@@ -1,5 +1,5 @@
-#ifndef S1_MODE_PRJ_H
-#define S1_MODE_PRJ_H
+#ifndef S1_MODE_H
+#define S1_MODE_H
 
 #include "../CommonLibrary/CommonLibrary.h"
 
@@ -58,7 +58,7 @@
 #endif
 
 /**
- Typedef for enumerating bat modes */
+ Typedef for enumerating s1 modes */
 typedef enum {
     S1_LOW_IDX,
     S1_DEGRADED_LOW_IDX,
@@ -71,24 +71,11 @@ typedef enum {
 
 } t_enum_s1Mode;
 
-
-extern uint16_t s1_mode_values[5]; /*!< vector to contain the "normal" frontiers between modes */
-extern uint16_t s1_mode_hyst_values[5]; /*!< vector to contain the "hystheresis" frontiers between modes */
-
-
 /**** FSM includes ****/
-void S1Discretizer1DInit(void);
-void S1Discretizer1D(void); /*!< Function that discretizes a continuous value in ranges */
-void S1TimeFilterInit(void);
-void S1TimeFilter(void); /*!< Function that filters a value in time */
-void S1ModeSchedulerInit(void);
-void S1ModeScheduler(void); /*!< Manager that commands the mode detection */
+void S1ModeInit(void);
+void S1Mode(void); /*!< Manager that commands the mode detection */
 
 /*** Manually added definitions ***/
-#define T_S1_RANGE_STABILITY_TIME ((uint16_t)20)  /*!< Time to filter the appearance of a new mode */
+#define T_S1_RANGE_STABILITY_TIME ((uint16_t)CALC_CYCLE_COUNT_FOR_TIME(50000))  /*!< Time to filter the appearance of a new mode */
 
-extern t_d1d_block s1_d1d_block; /*!< Block to allow discretizer to be "retargetable" */
-extern t_timefilter_block s1_timefilter_block; /*!< Block to allow time filter to be "retargetable" */
-
-
-#endif /* S1_DISCRETIZER_H */
+#endif /* S1_MODE_H */

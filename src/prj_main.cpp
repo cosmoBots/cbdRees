@@ -28,7 +28,7 @@ extern t_dre dre;
 
 /***** FSM tasks *****/
 void fsmTasksInit(void) {
-    S1ModeSchedulerInit();
+    S1ModeInit();
     BATModeInit();
     BUTDebounceInit();
     Sample();
@@ -37,7 +37,7 @@ void fsmTasksInit(void) {
 
 /***** FSM tasks *****/
 void fsmTasks(void) {
-    S1ModeScheduler();
+    S1Mode();
     BATMode();
     BUTDebounce();
     Blink();
