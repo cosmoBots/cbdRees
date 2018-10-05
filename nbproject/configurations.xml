@@ -12,43 +12,50 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-    </logicalFolder>
-    <logicalFolder name="src" displayName="src" projectFiles="true">
-      <logicalFolder name="CommonLibrary"
-                     displayName="CommonLibrary"
-                     projectFiles="true">
-        <itemPath>src/CommonLibrary/CommonLibrary.cpp</itemPath>
-        <itemPath>src/CommonLibrary/CommonLibrary.h</itemPath>
-        <itemPath>src/CommonLibrary/Discretizer1D.cpp</itemPath>
-        <itemPath>src/CommonLibrary/FlagQualifier.cpp</itemPath>
-        <itemPath>src/CommonLibrary/TimeFilter.cpp</itemPath>
+      <logicalFolder name="src" displayName="src" projectFiles="true">
+        <logicalFolder name="BATMode" displayName="BATMode" projectFiles="true">
+          <itemPath>src/BATMode/BATDiscretizer1D.cpp</itemPath>
+          <itemPath>src/BATMode/BATModePrj.cpp</itemPath>
+          <itemPath>src/BATMode/BATModePrj.h</itemPath>
+          <itemPath>src/BATMode/BATModeScheduler.cpp</itemPath>
+          <itemPath>src/BATMode/BATTimeFilter.cpp</itemPath>
+        </logicalFolder>
+        <logicalFolder name="CommonLibrary"
+                       displayName="CommonLibrary"
+                       projectFiles="true">
+          <itemPath>src/CommonLibrary/CommonLibrary.cpp</itemPath>
+          <itemPath>src/CommonLibrary/CommonLibrary.h</itemPath>
+          <itemPath>src/CommonLibrary/Discretizer1D.cpp</itemPath>
+          <itemPath>src/CommonLibrary/FlagQualifier.cpp</itemPath>
+          <itemPath>src/CommonLibrary/TimeFilter.cpp</itemPath>
+        </logicalFolder>
+        <logicalFolder name="FSM" displayName="FSM" projectFiles="true">
+          <itemPath>src/FSM/mainFSM.cdp</itemPath>
+          <itemPath>src/FSM/mainFSM.cpp</itemPath>
+          <itemPath>src/FSM/mainFSM.h</itemPath>
+          <itemPath>src/FSM/mainFSM_CI.cpp</itemPath>
+          <itemPath>src/FSM/mainFSM_CI.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="S1Mode" displayName="S1Mode" projectFiles="true">
+          <itemPath>src/S1Mode/S1Discretizer1D.cpp</itemPath>
+          <itemPath>src/S1Mode/S1ModePrj.cpp</itemPath>
+          <itemPath>src/S1Mode/S1ModePrj.h</itemPath>
+          <itemPath>src/S1Mode/S1ModeScheduler.cpp</itemPath>
+          <itemPath>src/S1Mode/S1TimeFilter.cpp</itemPath>
+        </logicalFolder>
+        <itemPath>src/DRE.cpp</itemPath>
+        <itemPath>src/DRE.h</itemPath>
+        <itemPath>src/prj_cfg.h</itemPath>
+        <itemPath>src/prj_input.cpp</itemPath>
+        <itemPath>src/prj_input.h</itemPath>
+        <itemPath>src/prj_main.cpp</itemPath>
+        <itemPath>src/prj_output.cpp</itemPath>
+        <itemPath>src/prj_output.h</itemPath>
+        <itemPath>src/prj_pinout.cpp</itemPath>
+        <itemPath>src/prj_pinout.h</itemPath>
+        <itemPath>src/prj_types.h</itemPath>
+        <itemPath>src/prj_variants.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="FSM" displayName="FSM" projectFiles="true">
-        <itemPath>src/FSM/mainFSM.cdp</itemPath>
-        <itemPath>src/FSM/mainFSM.cpp</itemPath>
-        <itemPath>src/FSM/mainFSM.h</itemPath>
-        <itemPath>src/FSM/mainFSM_CI.cpp</itemPath>
-        <itemPath>src/FSM/mainFSM_CI.h</itemPath>
-      </logicalFolder>
-      <logicalFolder name="S1Mode" displayName="S1Mode" projectFiles="true">
-        <itemPath>src/S1Mode/S1Discretizer1D.cpp</itemPath>
-        <itemPath>src/S1Mode/S1ModePrj.cpp</itemPath>
-        <itemPath>src/S1Mode/S1ModePrj.h</itemPath>
-        <itemPath>src/S1Mode/S1ModeScheduler.cpp</itemPath>
-        <itemPath>src/S1Mode/S1TimeFilter.cpp</itemPath>
-      </logicalFolder>
-      <itemPath>src/DRE.cpp</itemPath>
-      <itemPath>src/DRE.h</itemPath>
-      <itemPath>src/prj_cfg.h</itemPath>
-      <itemPath>src/prj_input.cpp</itemPath>
-      <itemPath>src/prj_input.h</itemPath>
-      <itemPath>src/prj_main.cpp</itemPath>
-      <itemPath>src/prj_output.cpp</itemPath>
-      <itemPath>src/prj_output.h</itemPath>
-      <itemPath>src/prj_pinout.cpp</itemPath>
-      <itemPath>src/prj_pinout.h</itemPath>
-      <itemPath>src/prj_types.h</itemPath>
-      <itemPath>src/prj_variants.h</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -86,6 +93,16 @@
         <archiverTool>
         </archiverTool>
       </compileType>
+      <item path="src/BATMode/BATDiscretizer1D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/BATMode/BATModePrj.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/BATMode/BATModePrj.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/BATMode/BATModeScheduler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/BATMode/BATTimeFilter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/CommonLibrary/CommonLibrary.cpp"
             ex="false"
             tool="1"
@@ -172,6 +189,16 @@
         <archiverTool>
         </archiverTool>
       </compileType>
+      <item path="src/BATMode/BATDiscretizer1D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/BATMode/BATModePrj.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/BATMode/BATModePrj.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/BATMode/BATModeScheduler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/BATMode/BATTimeFilter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/CommonLibrary/CommonLibrary.cpp"
             ex="false"
             tool="1"

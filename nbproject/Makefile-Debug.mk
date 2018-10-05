@@ -21,8 +21,8 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-MacOSX
-CND_DLIB_EXT=dylib
+CND_PLATFORM=Cygwin-Windows
+CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -35,6 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/src/BATMode/BATDiscretizer1D.o \
+	${OBJECTDIR}/src/BATMode/BATModePrj.o \
+	${OBJECTDIR}/src/BATMode/BATModeScheduler.o \
+	${OBJECTDIR}/src/BATMode/BATTimeFilter.o \
 	${OBJECTDIR}/src/CommonLibrary/CommonLibrary.o \
 	${OBJECTDIR}/src/CommonLibrary/Discretizer1D.o \
 	${OBJECTDIR}/src/CommonLibrary/FlagQualifier.o \
@@ -77,6 +81,26 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libcosmobotsdraft.a: ${OBJECTFILES}
 	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libcosmobotsdraft.a
 	${AR} -rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libcosmobotsdraft.a ${OBJECTFILES} 
 	$(RANLIB) ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libcosmobotsdraft.a
+
+${OBJECTDIR}/src/BATMode/BATDiscretizer1D.o: src/BATMode/BATDiscretizer1D.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/BATMode
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DDUMMY_COMPILATION -I../../gatATAC/arduino/libraries/gatArduinOSEK -Ilib/dummylib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/BATMode/BATDiscretizer1D.o src/BATMode/BATDiscretizer1D.cpp
+
+${OBJECTDIR}/src/BATMode/BATModePrj.o: src/BATMode/BATModePrj.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/BATMode
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DDUMMY_COMPILATION -I../../gatATAC/arduino/libraries/gatArduinOSEK -Ilib/dummylib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/BATMode/BATModePrj.o src/BATMode/BATModePrj.cpp
+
+${OBJECTDIR}/src/BATMode/BATModeScheduler.o: src/BATMode/BATModeScheduler.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/BATMode
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DDUMMY_COMPILATION -I../../gatATAC/arduino/libraries/gatArduinOSEK -Ilib/dummylib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/BATMode/BATModeScheduler.o src/BATMode/BATModeScheduler.cpp
+
+${OBJECTDIR}/src/BATMode/BATTimeFilter.o: src/BATMode/BATTimeFilter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/BATMode
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DDUMMY_COMPILATION -I../../gatATAC/arduino/libraries/gatArduinOSEK -Ilib/dummylib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/BATMode/BATTimeFilter.o src/BATMode/BATTimeFilter.cpp
 
 ${OBJECTDIR}/src/CommonLibrary/CommonLibrary.o: src/CommonLibrary/CommonLibrary.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/CommonLibrary

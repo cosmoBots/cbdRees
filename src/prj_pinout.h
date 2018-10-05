@@ -9,7 +9,7 @@
 
 #define PORT_ledStatus 13
 #define PORT_s1Sense -1
-#define PORT_s1Mode -1
+#define PORT_batSense -1
 
 void pinoutInit(void);
 void pinout(void);

@@ -29,12 +29,14 @@ extern t_dre dre;
 /***** FSM tasks *****/
 void fsmTasksInit(void) {
     S1ModeSchedulerInit();
+    BATModeSchedulerInit();
     Sample();
 }
 
 /***** FSM tasks *****/
 void fsmTasks(void) {
     S1ModeScheduler();
+    BATModeScheduler();
     Sample();
 }
 
@@ -98,8 +100,6 @@ void loop() {
         // timerSync returns true when the end of cycle syncronization time expired.
         timSync = timerSync();
     }
-
     ////////////// Output task
     prjOutput();
-
 }

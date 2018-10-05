@@ -157,8 +157,8 @@
         <object type="udActionItem">
             <property name="id" type="long">4</property>
             <property name="name" type="string">genLedStatus</property>
-            <property name="description" type="string">Generates the value of the ledStatus variable from the s1Mode variable</property>
-            <property name="code" type="string">dre.ledStatus = (dre.s1Mode != S1_NORMAL_IDX);</property>
+            <property name="description" type="string">Generates the value of the ledStatus variable from the batMode variable</property>
+            <property name="code" type="string">dre.ledStatus = (dre.batMode != BAT_NORMAL_IDX);</property>
             <property name="scope" type="string">&lt;global&gt;</property>
             <property name="signature" type="string">&lt;global&gt;::genLedStatus#4</property>
             <property name="inline" type="bool">1</property>
