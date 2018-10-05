@@ -31,13 +31,14 @@ void fsmTasksInit(void) {
     S1ModeSchedulerInit();
     BATModeSchedulerInit();
     Sample();
+    Blink();
 }
 
 /***** FSM tasks *****/
 void fsmTasks(void) {
     S1ModeScheduler();
     BATModeScheduler();
-    Sample();
+    Blink();
 }
 
 /***** Setup & Startup functions *****/

@@ -6,6 +6,14 @@
 #include "S1Mode/S1ModePrj.h"
 #include "BATMode/BATModePrj.h"
 
+/// Blink function structure
+typedef struct {
+    bool led;
+    uint16_t timer;
+}t_blink_function;
+
+
+/// DRE Structure
 typedef struct {
     /// Inputs
     uint16_t s1Sense;
@@ -17,8 +25,21 @@ typedef struct {
 
     /// Outputs
     bool ledStatus;
+    
+    /// Functions
+    t_blink_function blink;
 } t_dre;
 
+/// Blink function diagnostics structure
+#ifdef _DIAG_ACTIVE
+typedef struct {
+    bool enable_led;
+    bool led;
+    bool enable_timer;
+    uint16_t timer;
+}t_blink_function_diag;
+
+/// Diagnostics DRE structure
 typedef struct {
     bool enable_ledStatus;
     bool ledStatus;
@@ -29,7 +50,10 @@ typedef struct {
     bool enable_batSense;
     uint16_t batSense;
     bool enable_batMode;
-    t_enum_batMode batMode;} t_diag;
+    t_enum_batMode batMode;
+    t_blink_function_diag blink;
+} t_diag;
+#endif
 
 // Initialization functions
 

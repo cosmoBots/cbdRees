@@ -1,9 +1,12 @@
+#include "prj_cfg.h"
 #include "DRE.h"
 #include "prj_pinout.h"
 
 // --- DRE data structure declaration ---
 t_dre dre;
-
+#ifdef _DIAG_ACTIVE
+t_diag diag;
+#endif
 
 /// Inputs
 
@@ -52,6 +55,10 @@ void setup_ledStatus(void) {
 }
 
 void synthesize_ledStatus(void) {
+    
+#ifdef DEBUG_BLINK
+    digitalWrite(PORT_ledStatus, dre.blink.led);
+#else
     bool aux;
 #ifdef _DIAG_ACTIVE
     if (diag.enable_ledStatus == TRUE) {
@@ -66,6 +73,6 @@ void synthesize_ledStatus(void) {
 };
 
 void dreInit(void) {
-    setup_s1Mode();
+    setup_butMode();
     setup_batMode();
 }
