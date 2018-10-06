@@ -18,20 +18,18 @@ typedef struct {
 
 typedef struct {
     /// Inputs
-    uint16_t S1Sense;
-    uint16_t BATSense;
-    bool BUTDI;
-
-    /// Internals
-    t_enum_S1Mode S1Mode;
-    t_enum_BATMode BATMode;
-    bool BUT;
 
     /// Outputs
     bool ledStatus;
 
     /// Functions
     t_blink_function blink;
+
+    /// Modules
+#include "BATMode/BATMode_DRE.h"
+#include "S1Mode/S1Mode_DRE.h"
+#include "BUTDebounce/BUTDebounce_DRE.h"
+
 } t_dre;
 
 /// Blink function diagnostics structure
@@ -49,40 +47,28 @@ typedef struct {
 typedef struct {
     bool enable_ledStatus;
     bool ledStatus;
-    bool enable_S1Sense;
-    uint16_t S1Sense;
-    bool enable_S1Mode;
-    t_enum_S1Mode S1Mode;
-    bool enable_BATSense;
-    uint16_t BATSense;
-    bool enable_BATMode;
-    t_enum_BATMode BATMode;
     t_blink_function_diag blink;
-    bool enable_BUT;
-    bool BUT;
-    bool enable_BUTDI;
-    bool BUTDI;
+
+    /// Modules
+#include "BATMode/BATMode_DRE_diag.h"
+#include "S1Mode/S1Mode_DRE_diag.h"
+#include "BUTDebounce/BUTDebounce_DRE_diag.h"    
 } t_diag;
 #endif
 
 // Initialization functions
 
 /// Inputs
-void setup_S1Sense(void);
-void acquire_S1Sense(void);
-void setup_BATSense(void);
-void acquire_BATSense(void);
-void setup_BUTDI(void);
-void acquire_BUTDI(void);
 
 /// Internals
-void setup_S1Mode(void);
-void setup_BATMode(void);
-void setup_BUT(void);
 
 /// Outputs
 void setup_ledStatus(void);
 void synthesize_ledStatus(void);
+
+#include "BATMode/BATMode_DRE_func.h"
+#include "S1Mode/S1Mode_DRE_func.h"
+#include "BUTDebounce/BUTDebounce_DRE_func.h"
 
 void dreInit(void);
 

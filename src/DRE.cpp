@@ -42,17 +42,17 @@ void acquire_BATSense(void) {
 #endif
 }
 
-void setup_BUTDI(void) {
-    pinMode(PORT_BUTDI, INPUT_PULLUP);
+void setup_BUTRaw(void) {
+    pinMode(PORT_BUTRaw, INPUT_PULLUP);
 };
 
-void acquire_BUTDI(void) {
+void acquire_BUTRaw(void) {
 #ifdef _DIAG_ACTIVE
-    if (diag.enable_BUTDI) {
-        dre.BUTDI = diag.BUTDI;
+    if (diag.enable_BUTRaw) {
+        dre.BUTRaw = diag.BUTRaw;
     } else {
 #endif
-        dre.BUTDI = (digitalRead(PORT_BUTDI) == LOW);
+        dre.BUTRaw = (digitalRead(PORT_BUTRaw) == LOW);
 #ifdef _DIAG_ACTIVE
     }
 #endif
@@ -69,8 +69,8 @@ void setup_BATMode(void) {
     dre.BATMode = BAT_NORMAL_IDX;
 }
 
-void setup_BUT(void) {
-    dre.BUT = false;
+void setup_BUTFilt(void) {
+    dre.BUTFilt = false;
 }
 
 
@@ -87,7 +87,7 @@ DEBUG_BLINK override the normal behaviour.  In normal mode, the led
 follows the ledStatus DRE variable */
 void synthesize_ledStatus(void) {
 #ifdef DEBUG_BUT
-    digitalWrite(PORT_ledStatus, dre.BUT);
+    digitalWrite(PORT_ledStatus, dre.BUTFilt);
 #else
 #ifdef DEBUG_BLINK
     digitalWrite(PORT_ledStatus, dre.blink.led);
@@ -113,5 +113,5 @@ void synthesize_ledStatus(void) {
 void dreInit(void) {
     setup_S1Mode();
     setup_BATMode();
-    setup_BUT();
+    setup_BUTFilt();
 }

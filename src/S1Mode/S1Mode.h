@@ -12,4 +12,5 @@
 void S1ModeInit(void);
 void S1Mode(void); /*!< Manager that commands the mode detection */
 
+
 #endif /* S1_MODE_H */
