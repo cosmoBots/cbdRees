@@ -19,13 +19,13 @@ typedef struct {
 typedef struct {
     /// Inputs
     uint16_t s1Sense;
-    uint16_t batSense;
-    bool butDI;
+    uint16_t BATSense;
+    bool BUTDI;
 
     /// Internals
     t_enum_s1Mode s1Mode;
-    t_enum_batMode batMode;
-    bool but;
+    t_enum_BATMode BATMode;
+    bool BUT;
 
     /// Outputs
     bool ledStatus;
@@ -53,15 +53,15 @@ typedef struct {
     uint16_t s1Sense;
     bool enable_s1Mode;
     t_enum_s1Mode s1Mode;
-    bool enable_batSense;
-    uint16_t batSense;
-    bool enable_batMode;
-    t_enum_batMode batMode;
+    bool enable_BATSense;
+    uint16_t BATSense;
+    bool enable_BATMode;
+    t_enum_BATMode BATMode;
     t_blink_function_diag blink;
-    bool enable_but;
-    bool but;
-    bool enable_butDI;
-    bool butDI;
+    bool enable_BUT;
+    bool BUT;
+    bool enable_BUTDI;
+    bool BUTDI;
 } t_diag;
 #endif
 
@@ -70,15 +70,15 @@ typedef struct {
 /// Inputs
 void setup_s1Sense(void);
 void acquire_s1Sense(void);
-void setup_batSense(void);
-void acquire_batSense(void);
-void setup_butDI(void);
-void acquire_butDI(void);
+void setup_BATSense(void);
+void acquire_BATSense(void);
+void setup_BUTDI(void);
+void acquire_BUTDI(void);
 
 /// Internals
 void setup_s1Mode(void);
-void setup_batMode(void);
-void setup_but(void);
+void setup_BATMode(void);
+void setup_BUT(void);
 
 /// Outputs
 void setup_ledStatus(void);

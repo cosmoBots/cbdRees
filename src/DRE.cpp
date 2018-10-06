@@ -27,33 +27,33 @@ void acquire_s1Sense(void) {
 #endif
 }
 
-void setup_batSense(void) {
-    pinMode(PORT_batSense, INPUT);
+void setup_BATSense(void) {
+    pinMode(PORT_BATSense, INPUT);
 };
 
-void acquire_batSense(void) {
+void acquire_BATSense(void) {
 #ifdef _DIAG_ACTIVE
-    if (diag.enable_batSense) {
-        dre.s1Sense = diag.batSense;
+    if (diag.enable_BATSense) {
+        dre.BATSense = diag.BATSense;
     } else {
 #endif
-        dre.batSense = analogRead(PORT_batSense);
+        dre.BATSense = analogRead(PORT_BATSense);
 #ifdef _DIAG_ACTIVE
     }
 #endif
 }
 
-void setup_butDI(void) {
-    pinMode(PORT_butDI, INPUT_PULLUP);
+void setup_BUTDI(void) {
+    pinMode(PORT_BUTDI, INPUT_PULLUP);
 };
 
-void acquire_butDI(void) {
+void acquire_BUTDI(void) {
 #ifdef _DIAG_ACTIVE
-    if (diag.enable_butDI) {
-        dre.butDI = diag.butDI;
+    if (diag.enable_BUTDI) {
+        dre.BUTDI = diag.BUTDI;
     } else {
 #endif
-        dre.butDI = (digitalRead(PORT_butDI) == LOW);
+        dre.BUTDI = (digitalRead(PORT_BUTDI) == LOW);
 #ifdef _DIAG_ACTIVE
     }
 #endif
@@ -66,12 +66,12 @@ void setup_s1Mode(void) {
     dre.s1Mode = S1_NORMAL_IDX;
 }
 
-void setup_batMode(void) {
-    dre.batMode = BAT_NORMAL_IDX;
+void setup_BATMode(void) {
+    dre.BATMode = BAT_NORMAL_IDX;
 }
 
-void setup_but(void) {
-    dre.but = false;
+void setup_BUT(void) {
+    dre.BUT = false;
 }
 
 
@@ -88,7 +88,7 @@ DEBUG_BLINK override the normal behaviour.  In normal mode, the led
 follows the ledStatus DRE variable */
 void synthesize_ledStatus(void) {
 #ifdef DEBUG_BUT
-    digitalWrite(PORT_ledStatus, dre.but);
+    digitalWrite(PORT_ledStatus, dre.BUT);
 #else
 #ifdef DEBUG_BLINK
     digitalWrite(PORT_ledStatus, dre.blink.led);
@@ -113,6 +113,6 @@ void synthesize_ledStatus(void) {
 
 void dreInit(void) {
     setup_s1Mode();
-    setup_batMode();
-    setup_but();
+    setup_BATMode();
+    setup_BUT();
 }

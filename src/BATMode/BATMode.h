@@ -58,7 +58,7 @@
 #endif
 
 /**
- Typedef for enumerating bat modes */
+ Typedef for enumerating BAT modes */
 typedef enum {
     BAT_LOW_IDX,
     BAT_DEGRADED_LOW_IDX,
@@ -69,7 +69,7 @@ typedef enum {
 
 
 
-} t_enum_batMode;
+} t_enum_BATMode;
 
 /**** FSM includes ****/
 void BATModeInit(void);
@@ -77,6 +77,5 @@ void BATMode(void); /*!< Manager that commands the mode detection */
 
 /*** Manually added definitions ***/
 #define T_BAT_RANGE_STABILITY_TIME ((uint16_t)CALC_CYCLE_COUNT_FOR_TIME(50000))  /*!< Time to filter the appearance of a new mode */
-
 
 #endif /* BAT_MODE_H */

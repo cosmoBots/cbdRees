@@ -21,7 +21,7 @@ void Sample() {
             /* Transition ID: ID_SAMPLE_TRANSITION_CONNECTION */
             /* Actions: */
             /* ['<global>::genLedStatus' begin] */
-            dre.ledStatus = (dre.batMode != BAT_NORMAL_IDX);
+            dre.ledStatus = (dre.BATMode != BAT_NORMAL_IDX);
             /* ['<global>::genLedStatus' end] */
             break;
         }

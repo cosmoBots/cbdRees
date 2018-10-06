@@ -10,8 +10,8 @@
 
 #define PORT_ledStatus 13
 #define PORT_s1Sense A0     // = DIO 14
-#define PORT_batSense A1    // = DIO 15
-#define PORT_butDI 2
+#define PORT_BATSense A1    // = DIO 15
+#define PORT_BUTDI 2
 
 void pinoutInit(void);
 void pinout(void);
