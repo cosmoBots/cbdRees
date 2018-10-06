@@ -16,12 +16,21 @@
         <logicalFolder name="BATMode" displayName="BATMode" projectFiles="true">
           <itemPath>src/BATMode/BATMode.cpp</itemPath>
           <itemPath>src/BATMode/BATMode.h</itemPath>
+          <itemPath>src/BATMode/BATMode_DRE.h</itemPath>
+          <itemPath>src/BATMode/BATMode_DRE_diag.h</itemPath>
+          <itemPath>src/BATMode/BATMode_DRE_func.h</itemPath>
           <itemPath>src/BATMode/BATMode_autogen.h</itemPath>
           <itemPath>src/BATMode/BATMode_autogen_c.h</itemPath>
         </logicalFolder>
         <logicalFolder name="ButDebounce" displayName="ButDebounce" projectFiles="true">
           <itemPath>src/BUTDebounce/BUTDebounce.cpp</itemPath>
           <itemPath>src/ButDebounce/BUTDebounce.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="BUTDebounce" displayName="BUTDebounce" projectFiles="true">
+          <itemPath>src/BUTDebounce/BUTDebounce.h</itemPath>
+          <itemPath>src/BUTDebounce/BUTDebounce_DRE.h</itemPath>
+          <itemPath>src/BUTDebounce/BUTDebounce_DRE_diag.h</itemPath>
+          <itemPath>src/BUTDebounce/BUTDebounce_DRE_func.h</itemPath>
         </logicalFolder>
         <logicalFolder name="CommonLibrary"
                        displayName="CommonLibrary"
@@ -39,9 +48,16 @@
           <itemPath>src/FSM/mainFSM_CI.cpp</itemPath>
           <itemPath>src/FSM/mainFSM_CI.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="IoT" displayName="IoT" projectFiles="true">
+          <itemPath>src/IoT/prj_iot.cpp</itemPath>
+          <itemPath>src/IoT/prj_iot.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="S1Mode" displayName="S1Mode" projectFiles="true">
           <itemPath>src/S1Mode/S1Mode.cpp</itemPath>
           <itemPath>src/S1Mode/S1Mode.h</itemPath>
+          <itemPath>src/S1Mode/S1Mode_DRE.h</itemPath>
+          <itemPath>src/S1Mode/S1Mode_DRE_diag.h</itemPath>
+          <itemPath>src/S1Mode/S1Mode_DRE_func.h</itemPath>
           <itemPath>src/S1Mode/S1Mode_autogen.h</itemPath>
           <itemPath>src/S1Mode/S1Mode_autogen_c.h</itemPath>
         </logicalFolder>
@@ -90,6 +106,7 @@
             <pElem>lib/dummylib</pElem>
           </incDir>
           <preprocessorList>
+            <Elem>ARDUINO_ESP32_DEV</Elem>
             <Elem>DUMMY_COMPILATION</Elem>
           </preprocessorList>
         </ccTool>
@@ -100,11 +117,31 @@
       </item>
       <item path="src/BATMode/BATMode.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/BATMode/BATMode_DRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/BATMode/BATMode_DRE_diag.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/BATMode/BATMode_DRE_func.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/BATMode/BATMode_autogen.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/BATMode/BATMode_autogen_c.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/BUTDebounce/BUTDebounce.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/BUTDebounce/BUTDebounce.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/BUTDebounce/BUTDebounce_DRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/BUTDebounce/BUTDebounce_DRE_diag.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/BUTDebounce/BUTDebounce_DRE_func.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="src/ButDebounce/BUTDebounce.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -141,9 +178,19 @@
       </item>
       <item path="src/FSM/mainFSM_CI.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/IoT/prj_iot.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IoT/prj_iot.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/S1Mode/S1Mode.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/S1Mode/S1Mode.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1Mode_DRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1Mode_DRE_diag.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1Mode_DRE_func.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/S1Mode/S1Mode_autogen.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -196,11 +243,31 @@
       </item>
       <item path="src/BATMode/BATMode.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/BATMode/BATMode_DRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/BATMode/BATMode_DRE_diag.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/BATMode/BATMode_DRE_func.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/BATMode/BATMode_autogen.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/BATMode/BATMode_autogen_c.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/BUTDebounce/BUTDebounce.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/BUTDebounce/BUTDebounce.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/BUTDebounce/BUTDebounce_DRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/BUTDebounce/BUTDebounce_DRE_diag.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/BUTDebounce/BUTDebounce_DRE_func.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="src/ButDebounce/BUTDebounce.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -237,9 +304,19 @@
       </item>
       <item path="src/FSM/mainFSM_CI.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/IoT/prj_iot.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IoT/prj_iot.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/S1Mode/S1Mode.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/S1Mode/S1Mode.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1Mode_DRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1Mode_DRE_diag.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1Mode_DRE_func.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/S1Mode/S1Mode_autogen.h" ex="false" tool="3" flavor2="0">
       </item>

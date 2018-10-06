@@ -44,6 +44,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/DRE.o \
 	${OBJECTDIR}/src/FSM/mainFSM.o \
 	${OBJECTDIR}/src/FSM/mainFSM_CI.o \
+	${OBJECTDIR}/src/IoT/prj_iot.o \
 	${OBJECTDIR}/src/S1Mode/S1Mode.o \
 	${OBJECTDIR}/src/prj_input.o \
 	${OBJECTDIR}/src/prj_main.o \
@@ -121,6 +122,11 @@ ${OBJECTDIR}/src/FSM/mainFSM_CI.o: src/FSM/mainFSM_CI.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/FSM
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FSM/mainFSM_CI.o src/FSM/mainFSM_CI.cpp
+
+${OBJECTDIR}/src/IoT/prj_iot.o: src/IoT/prj_iot.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/IoT
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/IoT/prj_iot.o src/IoT/prj_iot.cpp
 
 ${OBJECTDIR}/src/S1Mode/S1Mode.o: src/S1Mode/S1Mode.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/S1Mode

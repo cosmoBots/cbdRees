@@ -24,6 +24,11 @@
 #include "prj_output.h"  // <-- The output module writes the microcontroller pinout
 #include "FSM/mainFSM.h"
 
+#ifdef CFG_USE_IOT
+#include "IoT/prj_iot.h"    // <-- The IoT module contains functions to manage the IoT connection
+//#include "IoT/IoT.h"        // <-- The IoT manager (fsm)
+#endif
+
 extern t_dre dre;
 
 /***** FSM tasks *****/

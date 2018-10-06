@@ -30,6 +30,11 @@ typedef struct {
 #include "S1Mode/S1Mode_DRE.h"
 #include "BUTDebounce/BUTDebounce_DRE.h"
 
+#ifdef CFG_USE_IOT
+    /// IoT
+#include "IoT/prj_iot_DRE.h"
+#endif
+
 } t_dre;
 
 /// Blink function diagnostics structure
@@ -52,7 +57,7 @@ typedef struct {
     /// Modules
 #include "BATMode/BATMode_DRE_diag.h"
 #include "S1Mode/S1Mode_DRE_diag.h"
-#include "BUTDebounce/BUTDebounce_DRE_diag.h"    
+#include "BUTDebounce/BUTDebounce_DRE_diag.h"
 } t_diag;
 #endif
 

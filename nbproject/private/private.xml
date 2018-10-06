@@ -16,13 +16,7 @@
             <file>file:/E:/txinto/cvs/cosmoBots/cosmoBotsDraft/src/DRE.cpp</file>
         </group>
         <group>
-            <file>file:/Users/txinto/dev/cosmoBots/cosmoBotsDraft/src/BUTDebounce/BUTDebounce.h</file>
-            <file>file:/Users/txinto/dev/cosmoBots/cosmoBotsDraft/src/DRE.h</file>
-            <file>file:/Users/txinto/dev/cosmoBots/cosmoBotsDraft/src/BATMode/BATMode.cpp</file>
-            <file>file:/Users/txinto/dev/cosmoBots/cosmoBotsDraft/src/S1Mode/S1Mode.cpp</file>
-            <file>file:/Users/txinto/dev/cosmoBots/cosmoBotsDraft/src/BUTDebounce/BUTDebounce.cpp</file>
-            <file>file:/Users/txinto/dev/cosmoBots/cosmoBotsDraft/src/BATMode/BATMode.h</file>
-            <file>file:/Users/txinto/dev/cosmoBots/cosmoBotsDraft/src/S1Mode/S1Mode.h</file>
+            <file>file:/Users/txinto/dev/cosmoBots/cosmoBotsDraft/src/IoT/prj_iot.cpp</file>
             <file>file:/Users/txinto/dev/cosmoBots/cosmoBotsDraft/src/prj_main.cpp</file>
         </group>
     </open-files>
