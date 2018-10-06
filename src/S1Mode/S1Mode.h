@@ -58,7 +58,7 @@
 #endif
 
 /**
- Typedef for enumerating s1 modes */
+ Typedef for enumerating S1 modes */
 typedef enum {
     S1_LOW_IDX,
     S1_DEGRADED_LOW_IDX,
@@ -69,7 +69,7 @@ typedef enum {
 
 
 
-} t_enum_s1Mode;
+} t_enum_S1Mode;
 
 /**** FSM includes ****/
 void S1ModeInit(void);

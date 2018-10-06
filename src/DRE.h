@@ -18,12 +18,12 @@ typedef struct {
 
 typedef struct {
     /// Inputs
-    uint16_t s1Sense;
+    uint16_t S1Sense;
     uint16_t BATSense;
     bool BUTDI;
 
     /// Internals
-    t_enum_s1Mode s1Mode;
+    t_enum_S1Mode S1Mode;
     t_enum_BATMode BATMode;
     bool BUT;
 
@@ -49,10 +49,10 @@ typedef struct {
 typedef struct {
     bool enable_ledStatus;
     bool ledStatus;
-    bool enable_s1Sense;
-    uint16_t s1Sense;
-    bool enable_s1Mode;
-    t_enum_s1Mode s1Mode;
+    bool enable_S1Sense;
+    uint16_t S1Sense;
+    bool enable_S1Mode;
+    t_enum_S1Mode S1Mode;
     bool enable_BATSense;
     uint16_t BATSense;
     bool enable_BATMode;
@@ -68,15 +68,15 @@ typedef struct {
 // Initialization functions
 
 /// Inputs
-void setup_s1Sense(void);
-void acquire_s1Sense(void);
+void setup_S1Sense(void);
+void acquire_S1Sense(void);
 void setup_BATSense(void);
 void acquire_BATSense(void);
 void setup_BUTDI(void);
 void acquire_BUTDI(void);
 
 /// Internals
-void setup_s1Mode(void);
+void setup_S1Mode(void);
 void setup_BATMode(void);
 void setup_BUT(void);
 

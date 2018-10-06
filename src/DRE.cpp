@@ -11,17 +11,17 @@ t_diag diag;
 
 /// Inputs
 
-void setup_s1Sense(void) {
-    pinMode(PORT_s1Sense, INPUT);
+void setup_S1Sense(void) {
+    pinMode(PORT_S1Sense, INPUT);
 };
 
-void acquire_s1Sense(void) {
+void acquire_S1Sense(void) {
 #ifdef _DIAG_ACTIVE
-    if (diag.enable_s1Sense) {
-        dre.s1Sense = diag.s1Sense;
+    if (diag.enable_S1Sense) {
+        dre.S1Sense = diag.S1Sense;
     } else {
 #endif
-        dre.s1Sense = analogRead(PORT_s1Sense);
+        dre.S1Sense = analogRead(PORT_S1Sense);
 #ifdef _DIAG_ACTIVE
     }
 #endif
@@ -62,8 +62,8 @@ void acquire_BUTDI(void) {
 
 /// Internals
 
-void setup_s1Mode(void) {
-    dre.s1Mode = S1_NORMAL_IDX;
+void setup_S1Mode(void) {
+    dre.S1Mode = S1_NORMAL_IDX;
 }
 
 void setup_BATMode(void) {
@@ -112,7 +112,7 @@ void synthesize_ledStatus(void) {
 /// Structure initialization
 
 void dreInit(void) {
-    setup_s1Mode();
+    setup_S1Mode();
     setup_BATMode();
     setup_BUT();
 }

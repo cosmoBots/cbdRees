@@ -8,13 +8,13 @@ extern t_dre dre;
 extern t_diag diag;
 
 void prjInputInit(void) {
-    setup_s1Sense();
+    setup_S1Sense();
     setup_BATSense();
     setup_BUTDI();
 }
 
 void prjInput(void) {
-    acquire_s1Sense();
+    acquire_S1Sense();
     acquire_BATSense();
     acquire_BUTDI();
 }
