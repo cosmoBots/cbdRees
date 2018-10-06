@@ -1,4 +1,3 @@
-
 /**
  Vector with the frontier values for discretization
  */
@@ -13,7 +12,6 @@ uint16_t S1_mode_values[] = {
 
 
 };
-
 
 /**
  Vector with the frontier values for discretization,

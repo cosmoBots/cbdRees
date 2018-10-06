@@ -36,8 +36,4 @@
 #endif
 
 
-/////// Diagnostics ////////////
-#define _DIAG_ACTIVE 0
-
-
 #endif /* _PRJ_VARIANTS_H */

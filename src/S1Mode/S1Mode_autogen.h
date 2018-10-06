@@ -48,6 +48,3 @@ typedef enum {
 
 
 } t_enum_S1Mode;
-
-/*** Manually added definitions ***/
-#define T_S1_RANGE_STABILITY_TIME ((uint16_t)CALC_CYCLE_COUNT_FOR_TIME(50000))  /*!< Time to filter the appearance of a new mode */

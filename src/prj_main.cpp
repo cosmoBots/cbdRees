@@ -40,6 +40,7 @@ void fsmTasks(void) {
     S1Mode();
     BATMode();
     BUTDebounce();
+    Sample();
     Blink();
 }
 

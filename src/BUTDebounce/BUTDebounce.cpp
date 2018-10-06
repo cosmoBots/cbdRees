@@ -5,7 +5,6 @@ extern t_dre dre;
 t_timefilter_block BUT_timefilter_block;
 
 void BUTDebounceInit(void) {
-    dre.BUT = HIGH;
     BUT_timefilter_block.input = (uint16_t) dre.BUTDI;
     BUT_timefilter_block.stability_time = T_BUT_RANGE_STABILITY_TIME;
     TimeFilterInit(&BUT_timefilter_block);

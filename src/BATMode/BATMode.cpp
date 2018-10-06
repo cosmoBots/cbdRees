@@ -3,7 +3,6 @@
 
 #include "BATMode_autogen_c.h"
 
-
 extern t_dre dre;
 t_timefilter_block BAT_timefilter_block;
 t_d1d_block BAT_d1d_block;

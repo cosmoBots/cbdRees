@@ -11,11 +11,12 @@
 //////// Main Configuration ///////////
 #define CTE_BLINK_PERIOD CALC_CYCLE_COUNT_FOR_TIME(1000000)
 
+/////// Diagnostics ////////////
+#define _DIAG_ACTIVE
+
 //////// Debug Configuration ///////////
 #define DEBUG_CYCLE_TIME
-
 //#define DEBUG_BLINK
-
 #define DEBUG_BUT
 
 #endif /* _PRJ_CFG_H */

@@ -5,7 +5,10 @@
 #include <Arduino.h>
 
 extern t_dre dre;
+
+#ifdef _DIAG_ACTIVE
 extern t_diag diag;
+#endif
 
 void prjInputInit(void) {
     setup_S1Sense();

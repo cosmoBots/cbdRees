@@ -3,7 +3,6 @@
 
 #include "{$replace}Mode_autogen_c.h"
 
-
 extern t_dre dre;
 t_timefilter_block {$replace}_timefilter_block;
 t_d1d_block {$replace}_d1d_block;

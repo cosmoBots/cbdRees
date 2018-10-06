@@ -3,7 +3,6 @@
 
 #include "S1Mode_autogen_c.h"
 
-
 extern t_dre dre;
 t_timefilter_block S1_timefilter_block;
 t_d1d_block S1_d1d_block;

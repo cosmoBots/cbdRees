@@ -16,6 +16,8 @@
         <logicalFolder name="BATMode" displayName="BATMode" projectFiles="true">
           <itemPath>src/BATMode/BATMode.cpp</itemPath>
           <itemPath>src/BATMode/BATMode.h</itemPath>
+          <itemPath>src/BATMode/BATMode_autogen.h</itemPath>
+          <itemPath>src/BATMode/BATMode_autogen_c.h</itemPath>
         </logicalFolder>
         <logicalFolder name="ButDebounce" displayName="ButDebounce" projectFiles="true">
           <itemPath>src/BUTDebounce/BUTDebounce.cpp</itemPath>
@@ -40,6 +42,8 @@
         <logicalFolder name="S1Mode" displayName="S1Mode" projectFiles="true">
           <itemPath>src/S1Mode/S1Mode.cpp</itemPath>
           <itemPath>src/S1Mode/S1Mode.h</itemPath>
+          <itemPath>src/S1Mode/S1Mode_autogen.h</itemPath>
+          <itemPath>src/S1Mode/S1Mode_autogen_c.h</itemPath>
         </logicalFolder>
         <itemPath>src/DRE.cpp</itemPath>
         <itemPath>src/DRE.h</itemPath>
@@ -96,6 +100,10 @@
       </item>
       <item path="src/BATMode/BATMode.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/BATMode/BATMode_autogen.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/BATMode/BATMode_autogen_c.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/BUTDebounce/BUTDebounce.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ButDebounce/BUTDebounce.h" ex="false" tool="3" flavor2="0">
@@ -136,6 +144,10 @@
       <item path="src/S1Mode/S1Mode.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/S1Mode/S1Mode.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1Mode_autogen.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1Mode_autogen_c.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/prj_cfg.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -184,6 +196,10 @@
       </item>
       <item path="src/BATMode/BATMode.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/BATMode/BATMode_autogen.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/BATMode/BATMode_autogen_c.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/BUTDebounce/BUTDebounce.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ButDebounce/BUTDebounce.h" ex="false" tool="3" flavor2="0">
@@ -224,6 +240,10 @@
       <item path="src/S1Mode/S1Mode.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/S1Mode/S1Mode.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1Mode_autogen.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/S1Mode/S1Mode_autogen_c.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/prj_cfg.h" ex="false" tool="3" flavor2="0">
       </item>

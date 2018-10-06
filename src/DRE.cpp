@@ -8,7 +8,6 @@ t_dre dre;
 t_diag diag;
 #endif
 
-
 /// Inputs
 
 void setup_S1Sense(void) {

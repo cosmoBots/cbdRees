@@ -48,6 +48,3 @@ typedef enum {
 
 
 } t_enum_{$replace}Mode;
-
-/*** Manually added definitions ***/
-#define T_{$replace}_RANGE_STABILITY_TIME ((uint16_t)CALC_CYCLE_COUNT_FOR_TIME(50000))  /*!< Time to filter the appearance of a new mode */

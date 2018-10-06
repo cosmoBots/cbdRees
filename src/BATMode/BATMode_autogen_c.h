@@ -1,4 +1,3 @@
-
 /**
  Vector with the frontier values for discretization
  */
