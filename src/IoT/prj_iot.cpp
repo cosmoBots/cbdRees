@@ -8,6 +8,8 @@
 #include <ESP8266WiFi.h>
 #elif ARDUINO_ESP8266_NODEMCU
 #include <ESP8266WiFi.h>
+#elif ARDUINO_ESP8266_ESP01
+#include <ESP8266WiFi.h>
 #elif ARDUINO_ESP32_DEV
 #include <WiFi.h>
 #else
@@ -31,6 +33,7 @@ char str_emgcy_action[10];
 char str_emgcy_action_pin[10];
 
 const char * VARIABLE_LABEL_BAT = "bat"; // Assign the variable label
+const char * VARIABLE_LABEL_BAT_MODE = "bat_mode"; // Assign the variable label
 const char * VARIABLE_LABEL_EMGCY_ACTION= "emgcy_action"; // Assign the variable label
 const char * VARIABLE_LABEL_EMGCY_ACTION_PIN= "emgcy_action_pin"; // Assign the variable label
 
@@ -79,7 +82,7 @@ void callback_ovr(char* topic, byte* payload, unsigned int length) {
   Serial.println();
 }
 
-void reconnect() {
+void reconnect(void) {
   // Loop until we're reconnected
   while (!client.connected()) {
     Serial.println("Attempting MQTT connection...");
@@ -125,7 +128,7 @@ void iot_init(void){
   #endif
 }
 
-void prj_iot_init(){
+void prjIoTInit(void){
   #ifdef CFG_USE_MQTT
   if (dre.iot_connect == true){
     if (WiFi.status() != WL_CONNECTED){
@@ -142,7 +145,7 @@ void prj_iot_init(){
 
 int payload_counter = 0;
 
-void prj_iot(){
+void prjIoT(void){
 
   bool ret = false;
 
@@ -166,20 +169,22 @@ void prj_iot(){
       case 0:
         dtostrf(dre.BATSense, 4, 0, str_bat);
         sprintf(topic, "%s%s", "/v1.6/devices/", DEVICE_LABEL);
-        sprintf(dre.iot_payload, "%s", ""); // Cleans the payload
-        sprintf(dre.iot_payload, "{\"%s\": %s}", VARIABLE_LABEL_BAT, str_bat); // Adds the variable label
+        dre.iot_payload[0] = '\0'; // Cleans the payload
+        sprintf(dre.iot_payload, "{\"%s\": %s,", VARIABLE_LABEL_BAT, str_bat); // Adds the variable label
+        dtostrf(dre.BATMode, 1, 0, str_bat);
+        sprintf(dre.iot_payload, "%s\"%s\": %s}", dre.iot_payload, VARIABLE_LABEL_BAT_MODE, str_bat); // Adds the variable label
         break;
       case 1:
         dtostrf(dre.emgcy_action, 1, 0, str_emgcy_action);
         sprintf(topic, "%s%s", "/v1.6/devices/", DEVICE_LABEL);
-        sprintf(dre.iot_payload, "%s", ""); // Cleans the payload
-        sprintf(dre.iot_payload, "{\"%s\"%s\": %s}", dre.iot_payload, VARIABLE_LABEL_EMGCY_ACTION_PIN, str_emgcy_action); // Adds the variable label
+        dre.iot_payload[0] = '\0'; // Cleans the payload
+        sprintf(dre.iot_payload, "{\"%s\": %s}", VARIABLE_LABEL_EMGCY_ACTION_PIN, str_emgcy_action); // Adds the variable label
         break;
       case 2:
         dtostrf(dre.emgcy_action_pin, 1, 0, str_emgcy_action_pin);
         sprintf(topic, "%s%s", "/v1.6/devices/", DEVICE_LABEL);
-        sprintf(dre.iot_payload, "%s", ""); // Cleans the payload
-        sprintf(dre.iot_payload, "{\"%s\"%s\": %s}", dre.iot_payload, VARIABLE_LABEL_EMGCY_ACTION, str_emgcy_action_pin); // Adds the variable label
+        dre.iot_payload[0] = '\0'; // Cleans the payload
+        sprintf(dre.iot_payload, "{\"%s\": %s}", VARIABLE_LABEL_EMGCY_ACTION, str_emgcy_action_pin); // Adds the variable label
         break;
     }
     payload_counter = (payload_counter + 1) % 3;

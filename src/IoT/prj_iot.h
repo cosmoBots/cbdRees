@@ -3,7 +3,7 @@
 
 /* El presente fichero contiene las funciones para conectar y desconectar del IoT */
 
-void prj_iot_init(void);
-void prj_iot();
+void prjIoTInit(void);
+void prjIoT();
 
 #endif

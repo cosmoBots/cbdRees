@@ -26,7 +26,7 @@
 
 #ifdef CFG_USE_IOT
 #include "IoT/prj_iot.h"    // <-- The IoT module contains functions to manage the IoT connection
-//#include "IoT/IoT.h"        // <-- The IoT manager (fsm)
+#include "IoT/IoT.h"        // <-- The IoT manager (fsm)
 #endif
 
 extern t_dre dre;
@@ -55,6 +55,8 @@ void setup() {
 
     Serial.begin(115200);
 
+    Serial.println("Arrancamos....");
+
     ////////////// Platform init
     timerSetCycleTime(CYCLE_TIME_IN_MICROS);
 
@@ -72,6 +74,12 @@ void setup() {
 
     ////////////// Output Init
     prjOutputInit();
+
+    ////////////// IoT Init
+    #ifdef CFG_USE_IOT
+    prjIoTInit();
+    dre.iot_go_online = true;
+    #endif
 }
 
 /* ---------------------------------------*/
@@ -90,6 +98,21 @@ void loop() {
 
     ////////////// FSM tasks
     fsmTasks();
+
+    ////////////// IoT tasks
+    #ifdef CFG_USE_IOT
+    FuncMngr();
+    IoTMng();
+    prjIoT();
+    #ifdef CFG_DEBUG_IOT
+    Serial.print("dre.iot_publish: ");
+    Serial.println(dre.iot_publish);
+    Serial.print("dre.iot_publish_timer: ");
+    Serial.println(dre.iot_publish_timer);
+    Serial.print("dre.iot_publish_timer_end: ");
+    Serial.println(CFG_PUBLISH_TIME);
+    #endif    
+    #endif
 
     // ----------- End of Cycle Synchronization ----------------
     boolean timSync = timerSync();

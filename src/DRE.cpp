@@ -102,7 +102,11 @@ void synthesize_ledStatus(void) {
 #ifdef _DIAG_ACTIVE
     }
 #endif
-    digitalWrite(PORT_ledStatus, aux);
+    if (aux){
+        digitalWrite(PORT_ledStatus, LOW);
+    } else {
+        digitalWrite(PORT_ledStatus, HIGH);
+    }
 #endif
 #endif
 };

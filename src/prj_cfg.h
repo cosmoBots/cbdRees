@@ -4,7 +4,7 @@
 #include "prj_variants.h"
 #include <gttc_timer.h>
 /////// Platform configuration /////////
-#define CYCLE_TIME_IN_MICROS 2000L
+#define CYCLE_TIME_IN_MICROS 5000L
 #define CYCLE_SECURITY_TIME_MICROS 100L
 #define CFG_MAX_TIMER 20000000L
 
@@ -16,8 +16,8 @@
 
 //////// Debug Configuration ///////////
 #define DEBUG_CYCLE_TIME
-//#define DEBUG_BLINK
-#define DEBUG_BUT
+#define DEBUG_BLINK
+//#define DEBUG_BUT
 
 
 
@@ -32,7 +32,13 @@
 #ifdef ESP8266_WEMOS_D1MINI
 #undef CFG_USE_DEEPSLEEP  // Deep Sleep only implemented in ARDUINO_ESP32_DEV
 // TODO: Implement deep sleep mode in ESP8266
+#elif ARDUINO_ESP8266_ESP01
+#undef CFG_USE_DEEPSLEEP  // Deep Sleep only implemented in ARDUINO_ESP32_DEV
+// TODO: Implement deep sleep mode in ESP8266
 #elif ARDUINO_ESP8266_NODEMCU
+#undef CFG_USE_DEEPSLEEP  // Deep Sleep only implemented in ARDUINO_ESP32_DEV
+// TODO: Implement deep sleep mode in ESP8266
+#elif DARDUINO_ESP8266_ESP01
 #undef CFG_USE_DEEPSLEEP  // Deep Sleep only implemented in ARDUINO_ESP32_DEV
 // TODO: Implement deep sleep mode in ESP8266
 #elif ARDUINO_ESP32_DEV
@@ -44,6 +50,18 @@
 #undef CFG_USE_MQTT
 #undef CFG_USE_IOT
 #elif ARDUINO_AVR_NANO
+#undef CFG_USE_DEEPSLEEP  // Deep Sleep only implemented in ARDUINO_ESP32_DEV
+// TODO: Implement deep sleep mode in Nano
+#undef CFG_USE_WIFI
+#undef CFG_USE_MQTT
+#undef CFG_USE_IOT
+#elif ARDUINO_AVR_MEGA2560
+#undef CFG_USE_DEEPSLEEP  // Deep Sleep only implemented in ARDUINO_ESP32_DEV
+// TODO: Implement deep sleep mode in Nano
+#undef CFG_USE_WIFI
+#undef CFG_USE_MQTT
+#undef CFG_USE_IOT
+#elif ARDUINO_AVR_UNO
 #undef CFG_USE_DEEPSLEEP  // Deep Sleep only implemented in ARDUINO_ESP32_DEV
 // TODO: Implement deep sleep mode in Nano
 #undef CFG_USE_WIFI
@@ -70,18 +88,19 @@
 #endif
 
 #ifdef CFG_USE_MQTT
-#define TOKEN "A1E-CdnvinUk80po42bXAhn7WfOyiduakI" // Put your Ubidots' TOKEN
-#define MQTT_CLIENT_NAME "zenproto" // MQTT client Name, please enter your own 8-12 alphanumeric character ASCII string;
+#define TOKEN "A1E-1xeHahv04tI0E9tF5RzFyElleLNNrq" // Put your Ubidots' TOKEN
+#define MQTT_CLIENT_NAME "cBotsDraft" // MQTT client Name, please enter your own 8-12 alphanumeric character ASCII string;
 //it should be a random and unique ascii string and different from all other devices
-#define CFG_PUBLISH_TIME CALC_CYCLE_COUNT_FOR_TIME(1000000)
+#define CFG_PUBLISH_TIME CALC_CYCLE_COUNT_FOR_TIME(200000)
 #define CMD_EMGCY_ACTION_LABEL "cmd_emgcy_action" // Assing the variable label
 #define OVR_EMGCY_ACTION_LABEL "ovr_emgcy_action" // Assing the variable label
-#define DEVICE_LABEL "zenproto" // Assig the device label
+#define DEVICE_LABEL "cBotsDraft" // Assig the device label
 #define CFG_MQTT_BROKER "things.ubidots.com"
 
 #endif
 
 #define CFG_USE_SERIALCMD
 
+#define DEBUG_IOT
 
 #endif /* _PRJ_CFG_H */
