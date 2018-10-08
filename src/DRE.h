@@ -25,6 +25,13 @@ typedef struct {
     /// Functions
     t_blink_function blink;
 
+  int emgcy_timer;
+  bool emgcy_button;
+  bool emgcy_action;
+  bool ovr_emgcy_action;
+  bool cmd_emgcy_action;
+  bool emgcy_action_pin;
+
     /// Modules
 #include "BATMode/BATMode_DRE.h"
 #include "S1Mode/S1Mode_DRE.h"
@@ -33,6 +40,10 @@ typedef struct {
 #ifdef CFG_USE_IOT
     /// IoT
 #include "IoT/prj_iot_DRE.h"
+#endif
+
+#ifdef CFG_USE_SERIALCMD
+#include "SerialCmd/SerialCmd_DRE.h"
 #endif
 
 } t_dre;

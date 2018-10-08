@@ -11,11 +11,4 @@ char iot_payload[128];
 bool iot_publish;
 int iot_publish_timer;
 
-int emgcy_timer;
-bool emgcy_button;
-bool emgcy_action;
-bool ovr_emgcy_action;
-bool cmd_emgcy_action;
-bool emgcy_action_pin;
-
 #endif /* _PRJ_IOT_DRE_H */

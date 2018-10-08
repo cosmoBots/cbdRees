@@ -1,0 +1,6 @@
+{
+    "terminal.integrated.env.linux": {
+        "PATH": "/home/txinto/.platformio/penv/bin:/home/txinto/.platformio/penv:/home/txinto/.rvm/gems/ruby-2.2.6/bin:/home/txinto/.rvm/gems/ruby-2.2.6@global/bin:/home/txinto/.rvm/rubies/ruby-2.2.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/txinto/.rvm/bin:/home/txinto/.rvm/bin",
+        "PLATFORMIO_CALLER": "vscode"
+    }
+}

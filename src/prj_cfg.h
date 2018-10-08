@@ -54,7 +54,7 @@
 #endif
 
 #ifdef CFG_USE_WIFI
-#if 1
+#if 0
 #define WIFISSID "Casita" // Put your WifiSSID here
 #define PASSWORD "3DOctubreD2011" // Put your wifi password here
 #else
@@ -80,6 +80,8 @@
 #define CFG_MQTT_BROKER "things.ubidots.com"
 
 #endif
+
+#define CFG_USE_SERIALCMD
 
 
 #endif /* _PRJ_CFG_H */
