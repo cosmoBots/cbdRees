@@ -100,28 +100,44 @@ void reconnect(void) {
     }
   }
 }
-
 #endif
 
 
 void iot_init(void){
-  #ifdef CFG_USE_WIFI
+#ifdef CFG_USE_WIFI
+#ifdef CFG_CREATE_WIFI
+  boolean ap_created = WiFi.softAP(WIFISSID, PASSWORD,WIFICHANNEL,true,4);
+  while(!ap_created){
+    Serial.println("Failed!");
+    delay(1000);
+    ap_created = WiFi.softAP(WIFISSID, PASSWORD,WIFICHANNEL,true,4);
+  }
+  Serial.println("WiFi AP Ready, waiing for first client");
+  int stationsnum = WiFi.softAPgetStationNum();
+  while (stationsnum < 1){
+    Serial.printf("Stations connected = %d\n", stationsnum);  
+    delay(1000);
+    stationsnum = WiFi.softAPgetStationNum();
+  }
+#else
   WiFi.begin(WIFISSID, PASSWORD);
 
   Serial.println();
   Serial.print("Wait for WiFi...");
-
+  
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
     delay(500);
   }
-
+  
   Serial.println("");
   Serial.println("WiFi Connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
-  #endif /* CFG_USE_WIFI */
-  #ifdef CFG_USE_MQTT
+#endif  
+#endif /* CFG_USE_WIFI */
+
+#ifdef CFG_USE_MQTT
   client.setServer(mqttBroker, 1883);
   client.setCallback(callback_ovr);
   iot_set_suscriptions();
