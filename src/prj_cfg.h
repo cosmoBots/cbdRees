@@ -12,7 +12,7 @@
 #define CTE_BLINK_PERIOD CALC_CYCLE_COUNT_FOR_TIME(1000000)
 
 /////// Diagnostics ////////////
-#define _DIAG_ACTIVE
+//#define _DIAG_ACTIVE
 
 //////// Debug Configuration ///////////
 #define DEBUG_CYCLE_TIME
