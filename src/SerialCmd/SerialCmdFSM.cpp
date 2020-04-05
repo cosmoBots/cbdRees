@@ -1,6 +1,7 @@
 #include "SerialCmd.h"
 /* ['Common headers' begin (DON'T REMOVE THIS LINE!)] */
 #include "SerialCmdFSM.h"
+#ifdef CFG_USE_SERIALCMD
 /* ['Common headers' end (DON'T REMOVE THIS LINE!)] */
 /* ['DispatchSysCmd' begin (DON'T REMOVE THIS LINE!)] */
 void DispatchSysCmd(  )
@@ -236,3 +237,4 @@ void Emergency(  )
     }
 }
 /* ['Emergency' end (DON'T REMOVE THIS LINE!)] */
+#endif

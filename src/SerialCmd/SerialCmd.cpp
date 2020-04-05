@@ -1,6 +1,7 @@
 #include "SerialCmd.h"
 
-#include "../prj_cfg.h"
+#ifdef CFG_USE_SERIALCMD
+
 #include "../DRE.h"
 extern t_dre dre;
 
@@ -29,3 +30,5 @@ void process_received_command(void){
   dre.cmd_counter = (dre.cmd_counter + 1) % CFG_CMD_STORAGE_SIZE;
   dre.incoming_bytes[0] = '\0';
 }
+
+#endif

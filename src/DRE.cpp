@@ -124,6 +124,37 @@ void dreInit(void) {
     dre.emgcy_action = false;
     dre.ovr_emgcy_action = false;
     dre.cmd_emgcy_action = false;
+
+    /* Init MechVentilator local vars */
+    dre.mv.currentWaitTriggerTime = 0;
+    dre.mv.currentStopInsufflationTime = 0;
+    dre.mv.currentFlow = 0;
+    /* Init MechVentilator FSM vars */
+    dre.mv.running = false;
+    dre.mv.enable = false;
+    dre.mv.totalCyclesInThisState = 0;
+    dre.mv.currentTime = 0;
+    dre.mv.flowSetpoint = 0;
+    /* Failures */
+    dre.fail.homing = false;
+    dre.fail.sensor = false;
+
+    // PID
+    dre.mv.pid = new AutoPID(&dre.mv.currentPressure, 
+                &dre.mv.peep, &dre.mv.stp.speed,PID_MIN, PID_MAX, PID_KP, PID_KI, PID_KD);
+    // if pressure is more than PID_BANGBANG below or above setpoint,
+    // output will be set to min or max respectively
+    dre.mv.pid -> setBangBang(PID_BANGBANG);
+    // set PID update interval
+    dre.mv.pid -> setTimeStep(PID_TS);
+
+    /* Outputs */
+    dre.misc.solenoid = OUTPUT;
+
+    /* Inputs */
+    dre.misc.endstop = false;
+
+
 #ifdef CFG_USE_UNO_LCD1602_KEYPAD    
     setup_KEYPMode();
 #endif

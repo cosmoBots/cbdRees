@@ -42,12 +42,118 @@
 #define LCD_BUT_NONE 5
 #endif
 
+#ifdef CFG_USE_SERIALCMD
+#define CFG_CMD_STORAGE_SIZE 4
+#define CFG_CMD_LENGTH 12
+#define CFG_EMGCY_QUALTIME CALC_CYCLE_COUNT_FOR_TIME(50000)
+#define CFG_EMGCY_ACTTIME CALC_CYCLE_COUNT_FOR_TIME(5000000)
+#endif
+
 //////////////////  PARTIAL STRUCTURES THAT CONFORM DRE STRUCTURE TREE //////////////
 /// Blink function structure
 typedef struct {
     bool led;
     uint16_t timer;
 } t_blink_function;
+
+/// MechVentilation function structure
+#include <AutoPID.h>
+#include <FlexyStepper.h>
+#include "Sensors/Sensors.h"
+
+// Solenoid
+#define SOLENOID_CLOSED 0
+#define SOLENOID_OPEN 1
+// Base de tiempos. Periodo de llamada a mechVentilation.update
+#define MV_TIME_BASE 50 //msec
+// Valores motor
+#define STEPPER_MICROSTEPS 4
+#define STEPPER_STEPS_PER_REVOLUTION 200
+
+#define STEPPER_MICROSTEPS_PER_REVOLUTION (STEPPER_STEPS_PER_REVOLUTION * STEPPER_MICROSTEPS)
+#define STEPPER_DIR 1
+#define STEPPER_HOMING_DIRECTION    (-1)
+#define STEPPER_HOMING_SPEED        (STEPPER_MICROSTEPS * 1000)   // Steps/s
+// #define STEPPER_LOWEST_POSITION     (STEPPER_MICROSTEPS * -100)   // Steps
+// #define STEPPER_HIGHEST_POSITION    (STEPPER_MICROSTEPS *   50)   // Steps
+#define STEPPER_LOWEST_POSITION     (STEPPER_MICROSTEPS *  85)   // Steps
+#define STEPPER_HIGHEST_POSITION    (STEPPER_MICROSTEPS * -100)   // Steps
+#define STEPPER_SPEED_DEFAULT       (STEPPER_MICROSTEPS *  800)   // Steps/s
+#define STEPPER_ACC_EXSUFFLATION    (STEPPER_MICROSTEPS *  600)   // Steps/s2
+#define STEPPER_ACC_INSUFFLATION    (STEPPER_MICROSTEPS *  450)   // Steps/s2
+
+// PID constants
+// PID settings and gains
+#define PID_MIN -10000 // TODO: check direction implementation
+#define PID_MAX 10000
+#define PID_KP 1000
+#define PID_KI 40
+#define PID_KD 0
+#define PID_TS MV_TIME_BASE
+#define PID_BANGBANG 4
+
+typedef struct {
+    bool homingReq;
+    bool homingDone;
+    bool homingError;
+    /** Stepper speed. @todo Denote units. */
+    float speed;    
+    FlexyStepper *stepper;
+}t_stepper;
+
+typedef struct {
+    /* Parameters */
+
+    /* Local vars */
+    int currentWaitTriggerTime;
+    int currentStopInsufflationTime;
+    float currentFlow;
+    /* FSM vars */
+    bool enable;
+    bool running;
+
+    /** Flow trigger activation. */
+    bool hasTrigger;
+    /** Flow trigger value in litres per minute. */
+    float triggerThreshold;
+    /**  Insufflation timeout in seconds. */
+    short timeoutIns;
+    /** Exsufflation timeout in seconds. */
+    short timeoutEsp;
+    /** Breaths per minute */
+    uint8_t rpm;
+    /** Peak inspiratory pressure */
+    float pip;
+    /** Peak espiratory pressure */
+    float peep;
+
+    bool sensor_error_detected;
+    bool startWasTriggeredByPatient;
+    SensorPressureValues_t pressures;
+    t_stepper stp;
+    AutoPID * pid;
+    float currentPressure;
+    float currentVolume;
+
+    int totalCyclesInThisState;
+    int currentTime;
+    int flowSetpoint;
+}t_mechvent;
+
+
+/// Misc function structure
+/// This structure contains variables needed by modules that have 
+/// been integrated, but that must be moved to the modules which will be integrated
+/// in the future
+typedef struct {
+    uint8_t solenoid;
+    bool endstop;
+}t_misc;
+
+typedef struct {
+    bool homing;
+    bool sensor;
+}t_failures;
 
 ////////////////// DRE STRUCTURE TREE //////////////
 
@@ -59,6 +165,12 @@ typedef struct {
 
     /// Functions
     t_blink_function blink;
+
+    t_mechvent mv;
+    t_misc misc;
+    t_failures fail;
+
+    Sensors * sensors;
 
     int emgcy_timer;
     bool emgcy_button;

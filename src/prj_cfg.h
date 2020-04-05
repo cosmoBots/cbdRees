@@ -7,7 +7,7 @@ in prj_variants.h file.
 #define _PRJ_CFG_H
 
 /* Include variant specific configuration and active variant selection */
-#include "prj_variants.h"
+#include <prj_variants.h>
 /* Include the real time time base for RTC main loop */
 #include <gttc_timer.h>
 
@@ -37,11 +37,16 @@ in prj_variants.h file.
  * (we include here examples, but the draft do not include 
  * activable features by now)
  * */
-#define CFG_USE_ROSSERIAL
+//#define CFG_USE_ROSSERIAL
 #define CFG_USE_MQTT
 #define CFG_USE_WIFI
-#define CFG_USE_SERIALCMD
+//#define CFG_USE_SERIALCMD
 #define CFG_USE_UNO_LCD1602_KEYPAD
+#define ENABLED_SENSOR_VOLUME_SFM3300
+
+#ifdef CFG_USE_ROSSERIAL
+#undef CFG_USE_SERIALCMD
+#endif
 
 /**
  * Microcontroller/platform related layer switch 
@@ -86,7 +91,7 @@ in prj_variants.h file.
 #elif ARDUINO_AVR_UNO
 #undef CFG_USE_MQTT
 #undef CFG_USE_WIFI
-#undef CFG_USE_ROSSERIAL
+//#undef CFG_USE_ROSSERIAL
 #else
 #error "No microcontroller defined"
 #endif

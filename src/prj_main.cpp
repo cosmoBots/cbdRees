@@ -27,6 +27,10 @@
 #include "SerialCmd/SerialCmdFSM.h"
 #endif
 
+#ifdef CFG_USE_ROSSERIAL
+#include "ROS/prj_ros.h"
+#endif
+
 extern t_dre dre;
 
 /***** FSM tasks *****/
@@ -36,8 +40,10 @@ void fsmTasksInit(void) {
     KEYPModeInit();
     Sample();
     Blink();
+#ifdef CFG_USE_SERIALCMD    
     ReceiveSysCmd();
-    DispatchSysCmd();    
+    DispatchSysCmd();
+#endif
 }
 
 /***** FSM tasks *****/
@@ -47,18 +53,20 @@ void fsmTasks(void) {
     KEYPMode();    
     Sample();
     Blink();
+#ifdef CFG_USE_SERIALCMD        
     ReceiveSysCmd();
     DispatchSysCmd(); 
+#endif
 }
 
 /***** Setup & Startup functions *****/
 
 void setup() {
-
+#ifndef CFG_USE_ROSSERIAL
     Serial.begin(115200);
 
     Serial.println("Arrancamos....");
-
+#endif
     ////////////// Platform init
     timerSetCycleTime(CYCLE_TIME_IN_MICROS);
 
@@ -73,6 +81,9 @@ void setup() {
 
     ////////////// Output Init
     prjOutputInit();
+#ifdef CFG_USE_ROSSERIAL
+    prj_ros_setup();
+#endif
 }
 
 /* ---------------------------------------*/
@@ -91,7 +102,8 @@ void loop() {
 
     // ----------- End of Cycle Synchronization ----------------
     boolean timSync = timerSync();
-#ifdef DEBUG_CYCLE_TIME
+    #ifdef DEBUG_CYCLE_TIME
+#ifndef CFG_USE_ROSSERIAL
     if (timSync) {
         Serial.println(">>>>>>>> Program Cycle Error! <<<<<<<<<");
     } else {
@@ -102,6 +114,9 @@ void loop() {
             Serial.println(elapsedMicros);
         }
     }
+#else
+    /* TODO: implement debugging using ROS */
+#endif
 #endif
     while (timSync == false) {
         // timerSync returns true when the end of cycle syncronization time expired.
