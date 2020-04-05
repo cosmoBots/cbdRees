@@ -23,30 +23,32 @@
 #include "prj_input.h"  // <-- The input module reads the microcontroller pinout
 #include "prj_output.h"  // <-- The output module writes the microcontroller pinout
 #include "FSM/mainFSM.h"
-
-#ifdef CFG_USE_IOT
-#include "IoT/prj_iot.h"    // <-- The IoT module contains functions to manage the IoT connection
-#include "IoT/IoT.h"        // <-- The IoT manager (fsm)
+#ifdef CFG_USE_SERIALCMD
+#include "SerialCmd/SerialCmdFSM.h"
 #endif
 
 extern t_dre dre;
 
 /***** FSM tasks *****/
 void fsmTasksInit(void) {
-    S1ModeInit();
     BATModeInit();
     BUTDebounceInit();
+    KEYPModeInit();
     Sample();
     Blink();
+    ReceiveSysCmd();
+    DispatchSysCmd();    
 }
 
 /***** FSM tasks *****/
 void fsmTasks(void) {
-    S1Mode();
     BATMode();
     BUTDebounce();
+    KEYPMode();    
     Sample();
     Blink();
+    ReceiveSysCmd();
+    DispatchSysCmd(); 
 }
 
 /***** Setup & Startup functions *****/
@@ -63,9 +65,6 @@ void setup() {
     ////////////// DRE init
     dreInit();
 
-    ////////////// Pinout init
-    pinoutInit();
-
     ////////////// Input init
     prjInputInit();
 
@@ -74,12 +73,6 @@ void setup() {
 
     ////////////// Output Init
     prjOutputInit();
-
-    ////////////// IoT Init
-    #ifdef CFG_USE_IOT
-    prjIoTInit();
-    dre.iot_go_online = true;
-    #endif
 }
 
 /* ---------------------------------------*/
@@ -90,29 +83,11 @@ int program_cycle_warnings = 0;
 void loop() {
     // ----------- Functionality ----------------
 
-    ////////////// Pinout task
-    pinout();
-
     ////////////// Input task
     prjInput();
 
     ////////////// FSM tasks
     fsmTasks();
-
-    ////////////// IoT tasks
-    #ifdef CFG_USE_IOT
-    FuncMngr();
-    IoTMng();
-    prjIoT();
-    #ifdef CFG_DEBUG_IOT
-    Serial.print("dre.iot_publish: ");
-    Serial.println(dre.iot_publish);
-    Serial.print("dre.iot_publish_timer: ");
-    Serial.println(dre.iot_publish_timer);
-    Serial.print("dre.iot_publish_timer_end: ");
-    Serial.println(CFG_PUBLISH_TIME);
-    #endif    
-    #endif
 
     // ----------- End of Cycle Synchronization ----------------
     boolean timSync = timerSync();

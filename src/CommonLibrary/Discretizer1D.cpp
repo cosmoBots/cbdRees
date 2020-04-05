@@ -1,5 +1,12 @@
 #include "CommonLibrary.h"
 
+void Discretizer1DUpRangeInit(t_d1d_block *d1d_block);
+void Discretizer1DUpRange(t_d1d_block *d1d_block); /*!< Discretizes one variable into ranges using upper vector */
+void Discretizer1DDownRangeInit(t_d1d_block *d1d_block);
+void Discretizer1DDownRange(t_d1d_block *d1d_block); /*!< Discretizes one variable into ranges using lower vector */
+void Discretizer1DSolverInit(t_d1d_block *d1d_block);
+void Discretizer1DSolver(t_d1d_block *d1d_block); /*!< Solves conflicts between upper and lower discretizations */
+
 void Discretizer1DUpRangeInit(t_d1d_block *d1d_block) {
 
 }

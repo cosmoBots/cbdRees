@@ -1,50 +1,50 @@
 /**** Code generated from specification spreadsheet ****/
 
 
-/*               _________________________________*/
-/*          -----|                                */
-/*          -----|          HIGH                  */
-/*          18,5v| - - - - - - - - - - - - - - -  */
-/*          18,4v| - - - - - - - - - - - - - - -  */
-/*          -----|                                */
-/*          -----|          DEGRADED_HIGH         */
-/*          16,5v| - - - - - - - - - - - - - - -  */
-/*          16,4v| - - - - - - - - - - - - - - -  */
-/*          -----|                                */
-/*          -----|          NORMAL                */
-/*           7,5v| - - - - - - - - - - - - - - -  */
-/*           7,4v| - - - - - - - - - - - - - - -  */
-/*          -----|                                */
-/*          -----|          DEGRADED_LOW          */
-/*           6,5v| - - - - - - - - - - - - - - -  */
-/*           6,4v| - - - - - - - - - - - - - - -  */
-/*          -----|                                */
-/*          -----|          LOW                   */
-/*          -----|                                */
-/*           0,0v|________________________________*/
+ /*          -----_________________________________*/
+ /*          -----|                                */
+ /*          -----|          EMGCY_HIGH            */
+ /*          -----|                                */
+ /*          16,0v| - - - - - - - - - - - - - - -  */
+ /*          -----|                                */
+ /*          -----|          NORMAL                */
+ /*          -----|                                */
+ /*          12,1v| - - - - - - - - - - - - - - -  */
+ /*          -----|                                */
+ /*          -----|          LOW                   */
+ /*          -----|                                */
+ /*          11,9v| - - - - - - - - - - - - - - -  */
+ /*          -----|                                */
+ /*          -----|          EMGCY_LOW             */
+ /*          -----|                                */
+ /*           0,0v|________________________________*/
 
-#define BAT_LOW_CAL                              ((uint16_t)0x0000)      /* 0V 0 adc 0 Vadc */
-#define BAT_DEGRADED_LOW_CAL                     ((uint16_t)0x03E0)      /* 6,5V 992 adc 0,799 Vadc */
-#define BAT_NORMAL_CAL                           ((uint16_t)0x0489)      /* 7,5V 1161 adc 0,935 Vadc */
-#define BAT_DEGRADED_HIGH_CAL                    ((uint16_t)0x09C1)      /* 16,5V 2497 adc 2,012 Vadc */
-#define BAT_HIGH_CAL                             ((uint16_t)0x0A7C)      /* 18,5V 2684 adc 2,162 Vadc */
 
-#define BAT_LOW_HYST_CAL                         ((uint16_t)0x0000)      /* -0,1V 0 adc 0 Vadc */
-#define BAT_DEGRADED_LOW_HYST_CAL                ((uint16_t)0x03CF)      /* 6,4V 975 adc 0,785 Vadc */
-#define BAT_NORMAL_HYST_CAL                      ((uint16_t)0x0477)      /* 7,4V 1143 adc 0,92 Vadc */
-#define BAT_DEGRADED_HIGH_HYST_CAL               ((uint16_t)0x09B9)      /* 16,4V 2489 adc 2,005 Vadc */
-#define BAT_HIGH_HYST_CAL                        ((uint16_t)0x0A74)      /* 18,4V 2676 adc 2,156 Vadc */
+#define BAT_EMGCY_LOW_CAL                        ((uint16_t)0x0000)      /* 0V 0 adc 0 Vadc */
+#define BAT_LOW_CAL                              ((uint16_t)0x0985)      /* 11.9V 2437 adc 2.975 Vadc */
+#define BAT_NORMAL_CAL                           ((uint16_t)0x09AE)      /* 12.1V 2478 adc 3.025 Vadc */
+#define BAT_EMGCY_HIGH_CAL                       ((uint16_t)0x0CCD)      /* 16V 3277 adc 4 Vadc */
+
+#define BAT_EMGCY_LOW_HYST_CAL                   ((uint16_t)0x0000)      /* -0.05V 0 adc 0 Vadc */
+#define BAT_LOW_HYST_CAL                         ((uint16_t)0x097B)      /* 11.85V 2427 adc 2.962 Vadc */
+#define BAT_NORMAL_HYST_CAL                      ((uint16_t)0x09A4)      /* 12.05V 2468 adc 3.012 Vadc */
+#define BAT_EMGCY_HIGH_HYST_CAL                  ((uint16_t)0x0CC3)      /* 15.95V 3267 adc 3.987 Vadc */
 
 /**
  Typedef for enumerating BAT modes */
 typedef enum {
-    BAT_LOW_IDX,
-    BAT_DEGRADED_LOW_IDX,
-    BAT_NORMAL_IDX,
-    BAT_DEGRADED_HIGH_IDX,
-    BAT_HIGH_IDX
-
-
-
-
+BAT_EMGCY_LOW_IDX,
+BAT_LOW_IDX,
+BAT_NORMAL_IDX,
+BAT_EMGCY_HIGH_IDX
 } t_enum_BATMode;
+
+
+
+typedef enum {
+BAT_EMGCY_LOW_HYST_IDX,
+BAT_LOW_HYST_IDX,
+BAT_NORMAL_HYST_IDX,
+BAT_EMGCY_HIGH_HYST_IDX
+} t_enum_BATMode_hyst;
+

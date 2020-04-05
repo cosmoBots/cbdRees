@@ -44,10 +44,31 @@ void DispatchSysCmd(  )
                 /* ['<global>::process_emgcy_cmd' end] */
                 state = ID_DISPATCHSYSCMD_EMGCYCMD;
             }
+            else if( dre.cmd_storage[dre.cmd_base][0] == 'l' )
+            {
+                /* Transition ID: ID_DISPATCHSYSCMD_TRANSITION_CONNECTION */
+                /* Actions: */
+                process_led_cmd();
+                state = ID_DISPATCHSYSCMD_DIAGLEDCMD;
+            }
             break;
         }
         /* State ID: ID_DISPATCHSYSCMD_EMGCYCMD */
         case ID_DISPATCHSYSCMD_EMGCYCMD:
+        {
+            if( true /* Instant command */ )
+            {
+                /* Transition ID: ID_DISPATCHSYSCMD_TRANSITION_CONNECTION */
+                /* Actions: */
+                /* ['<global>::jmp_next_cmd' begin] */
+                dre.cmd_base = (dre.cmd_base + 1) % CFG_CMD_STORAGE_SIZE;
+                /* ['<global>::jmp_next_cmd' end] */
+                state = ID_DISPATCHSYSCMD_WAITING;
+            }
+            break;
+        }
+        /* State ID: ID_DISPATCHSYSCMD_DIAGLEDCMD */
+        case ID_DISPATCHSYSCMD_DIAGLEDCMD:
         {
             if( true /* Instant command */ )
             {

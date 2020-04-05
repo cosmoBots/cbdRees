@@ -10,21 +10,6 @@ t_diag diag;
 
 /// Inputs
 
-void setup_S1Sense(void) {
-    pinMode(PORT_S1Sense, INPUT);
-};
-
-void acquire_S1Sense(void) {
-#ifdef _DIAG_ACTIVE
-    if (diag.enable_S1Sense) {
-        dre.S1Sense = diag.S1Sense;
-    } else {
-#endif
-        dre.S1Sense = analogRead(PORT_S1Sense);
-#ifdef _DIAG_ACTIVE
-    }
-#endif
-}
 
 void setup_BATSense(void) {
     pinMode(PORT_BATSense, INPUT);
@@ -58,12 +43,28 @@ void acquire_BUTRaw(void) {
 #endif
 }
 
-
-/// Internals
-
-void setup_S1Mode(void) {
-    dre.S1Mode = S1_NORMAL_IDX;
+#ifdef CFG_USE_UNO_LCD1602_KEYPAD
+void setup_KEYPMode(void) {
+    dre.KEYPMode = KEYP_NONE_IDX;
 }
+void setup_KEYPSense(void) {
+    pinMode(PIN_KEYPSense,INPUT);
+}
+
+void acquire_KEYPSense(void) {
+#ifdef _DIAG_ACTIVE
+    if (diag.enable_KEYPSense) {
+        dre.KEYPSense = diag.KEYPSense;
+    } else {
+#endif
+        dre.KEYPSense = analogRead(PIN_KEYPSense);      // read the value from the sensor
+
+#ifdef _DIAG_ACTIVE
+    }
+#endif
+}
+#endif
+/// Internals
 
 void setup_BATMode(void) {
     dre.BATMode = BAT_NORMAL_IDX;
@@ -115,7 +116,32 @@ void synthesize_ledStatus(void) {
 /// Structure initialization
 
 void dreInit(void) {
-    setup_S1Mode();
+    dre.ledStatus = false;
+    dre.blink.led = false;
+    dre.blink.timer = 0;
+    dre.emgcy_timer = 0;
+    dre.emgcy_button = false;
+    dre.emgcy_action = false;
+    dre.ovr_emgcy_action = false;
+    dre.cmd_emgcy_action = false;
+#ifdef CFG_USE_UNO_LCD1602_KEYPAD    
+    setup_KEYPMode();
+#endif
     setup_BATMode();
     setup_BUTFilt();
 }
+void diagInit(void) {
+    diag.blink.enable_led = false;
+    diag.blink.led = false;
+    diag.blink.enable_timer = false;
+    diag.blink.timer = 0;
+
+    diag.ledStatus = false;
+    diag.enable_ledStatus = false;
+
+    diag.enable_KEYPSense = false;
+    diag.KEYPSense = 0;
+    diag.enable_KEYPMode = false;
+    diag.KEYPMode = KEYP_NONE_IDX;
+}
+
